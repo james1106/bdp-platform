@@ -4,6 +4,14 @@
 # Log file
 *.log
 
+# Maven file
+target
+
+# Eclipse project
+.classpath
+.project
+.settings
+
 # BlueJ files
 *.ctxt
 
