@@ -1,4 +1,4 @@
-package com.bdp.eureka;
+package com.bdp.register;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -6,9 +6,9 @@ import org.springframework.cloud.netflix.eureka.server.EnableEurekaServer;
 
 @SpringBootApplication
 @EnableEurekaServer
-public class EurekaServerApplication {
+public class RegisterServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EurekaServerApplication.class, args);
+		SpringApplication.run(RegisterServerApplication.class, args);
 	}
 }
