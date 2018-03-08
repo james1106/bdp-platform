@@ -21,7 +21,10 @@ public class ApiController {
 	}
 
 	@GetMapping("/dataSource/{id}")
-	public String getDataSourceById(@PathVariable("id") String id) {
+	public String getDataSourceById(@PathVariable("id") String id) throws Exception {
+		if("error".equals(id)) {//如果传入的id为error,线程停3s,用来测试
+			Thread.sleep(3000L);
+		}
 		return "ds" + id;
 	}
 }

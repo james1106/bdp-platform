@@ -1,41 +1,24 @@
 package com.bdp.metadata.remoteapi;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import feign.hystrix.FallbackFactory;
+import com.bdp.metadata.fallback.DataSourceClientFallback;
+import com.bdp.metadata.fallback.DataSourceClientFallbackFactory;
 
-@FeignClient(name = "bdp-datasource/datasource",fallback=DataSourceClientFallback.class)
+/**
+ * 注意，这里如果bdp-datasource这个服务的server.servlet.context-path设置了值 ， 则name需要加上这个值,
+ * 否则无法找到服务。如：bdp-datasource/datasource.
+ * 要启用fallback功能需要配置feign.hystrix.enabled=true属性。
+ * 当fallback与fallbackFactory同时使用时，只有fallback有用。这里为了测试两个都配置。
+ * 
+ * 用用的网址：http://blog.csdn.net/forezp/article/details/70148833
+ * 
+ * @author jack
+ */
+@FeignClient(name = "bdp-datasource", fallback = DataSourceClientFallback.class, fallbackFactory = DataSourceClientFallbackFactory.class)
 public interface DataSourceClient {
 	@GetMapping("/dataSource/{id}")
 	public String getDataSourceById(@PathVariable("id") String id);
-}
-
-class DataSourceClientFallback implements DataSourceClient{
-
-	@Override
-	public String getDataSourceById(String id) {
-		return "ERROR DataSourceClient.  "+id;
-	}
-	
-}
-
-//@Component
-class DataSourceClientFallbackFactory implements FallbackFactory<DataSourceClient> {
-	private static final Logger LOG = LoggerFactory.getLogger(DataSourceClientFallbackFactory.class);
-
-	@Override
-	public DataSourceClient create(Throwable cause) {
-		LOG.error(cause.getMessage());
-		return new DataSourceClient() {
-			@Override
-			public String getDataSourceById(String id) {
-				return "error";
-			}
-		};
-	}
 }
