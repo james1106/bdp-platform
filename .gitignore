@@ -12,6 +12,9 @@ target
 .project
 .settings
 
+# STS files
+.springBeans
+
 # BlueJ files
 *.ctxt
 
