@@ -76,6 +76,7 @@
 		<module>bdp-gateway</module>
 		<module>bdp-datasource</module>
 		<module>bdp-metadata</module>
+		<module>bdp-minibi</module>
 	</modules>
 
 	<repositories>

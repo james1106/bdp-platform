@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: bdp-gateway
+server:
+  port: 80
+logging:
+  root: DEBUG
+eureka:
+  instance:
+    instance-id: ${spring.cloud.client.ipaddress}:${server.port}
+    status-page-url: http://${spring.cloud.client.ipaddress}:${server.port}/info
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8081/eureka
+zuul:
+  ignoredServices: '*'
+  remark: ignoredServices用来配置不默认代理哪些服务请求，*表示所有的服务默认都不代理。zuul默认是代理所有eureka注册的所有服务
+  routes:
+    api-a:
+      path: /datasource/**
+      serviceId: bdp-datasource
+    api-b:
+      path: /metadata/**
+      serviceId: bdp-metadata
+  tokenfilter:
+    remark: 通过自定义配置演示是否启用指定的过滤器
+    enabled: true

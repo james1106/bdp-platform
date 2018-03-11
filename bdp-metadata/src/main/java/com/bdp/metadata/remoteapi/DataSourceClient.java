@@ -12,6 +12,7 @@ import com.bdp.metadata.fallback.DataSourceClientFallbackFactory;
  * 否则无法找到服务。如：bdp-datasource/datasource.
  * 要启用fallback功能需要配置feign.hystrix.enabled=true属性。
  * 当fallback与fallbackFactory同时使用时，只有fallback有用。这里为了测试两个都配置。
+ * 建议使用fallbackFactory，可以获取失败的异常信息
  * 
  * 用用的网址：http://blog.csdn.net/forezp/article/details/70148833
  * 
