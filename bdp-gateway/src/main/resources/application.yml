@@ -4,11 +4,12 @@ spring:
 server:
   port: 80
 logging:
-  root: DEBUG
+  level:
+    root: DEBUG
 eureka:
   instance:
-    instance-id: ${spring.cloud.client.ipaddress}:${server.port}
-    status-page-url: http://${spring.cloud.client.ipaddress}:${server.port}/info
+    instance-id: ${spring.cloud.client.ipAddress}:${server.port}
+    status-page-url: http://${spring.cloud.client.ipAddress}:${server.port}/info
   client:
     serviceUrl:
       defaultZone: http://localhost:8081/eureka

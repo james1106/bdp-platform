@@ -3,10 +3,13 @@ package com.bdp.monitor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import zipkin.server.EnableZipkinServer;
+
 @SpringBootApplication
-public class EurekaServerApplication {
+@EnableZipkinServer
+public class MonitorServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(EurekaServerApplication.class, args);
+		SpringApplication.run(MonitorServerApplication.class, args);
 	}
 }
