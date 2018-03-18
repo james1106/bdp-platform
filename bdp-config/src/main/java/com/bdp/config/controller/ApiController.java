@@ -13,16 +13,16 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import com.netflix.appinfo.InstanceInfo;
-import com.netflix.discovery.EurekaClient;
+import com.netflix.discovery.DiscoveryClient;
 import com.netflix.discovery.shared.Application;
 
 @RestController
 @RequestMapping("/")
 public class ApiController {
 
-	// 注意这块使用的是EurekaClient，开始很容易错用成DiscoveryClient.以前版本支持。一个大水坑
+	// 新版本的Sprign cloud 已经无此接口，只能使用EurekaClient
 	@Autowired
-	private EurekaClient discoveryClient;
+	private DiscoveryClient discoveryClient;
 
 	@GetMapping("/refresh/{app}")
 	public String refresh(@PathVariable("app") String app) {
