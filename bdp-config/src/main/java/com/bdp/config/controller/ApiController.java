@@ -14,6 +14,7 @@ import org.springframework.web.client.RestTemplate;
 
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.DiscoveryClient;
+import com.netflix.discovery.EurekaClient;
 import com.netflix.discovery.shared.Application;
 
 @RestController
@@ -22,7 +23,7 @@ public class ApiController {
 
 	// 新版本的Sprign cloud 已经无此接口，只能使用EurekaClient
 	@Autowired
-	private DiscoveryClient discoveryClient;
+	private EurekaClient discoveryClient;
 
 	@GetMapping("/refresh/{app}")
 	public String refresh(@PathVariable("app") String app) {
