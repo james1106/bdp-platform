@@ -1,4 +1,5 @@
 # Auto Configuration
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 com.bdp.security.BdpSecurityConfiguration,\
-com.bdp.security.FeignSecurityConfiguration
+com.bdp.security.FeignSecurityConfiguration,\
+com.bdp.security.ZuulSecurityConfiguration
