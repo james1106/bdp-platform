@@ -21,6 +21,7 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<bdp.version>0.0.1-SNAPSHOT</bdp.version>
 		<java.version>1.8</java.version>
 	</properties>
 
@@ -48,7 +49,12 @@
 			<dependency>
 				<groupId>com.bdp</groupId>
 				<artifactId>bdp-security</artifactId>
-				<version>0.0.1-SNAPSHOT</version>
+				<version>${bdp.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.bdp</groupId>
+				<artifactId>bdp-common</artifactId>
+				<version>${bdp.version}</version>
 			</dependency>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
@@ -62,6 +68,8 @@
 
 	<modules>
 		<module>bdp-register</module>
+		<module>bdp-common</module>
+		<module>bdp-framework</module>
 		<module>bdp-security</module>
 		<module>bdp-config</module>
 		<module>bdp-monitor</module>
