@@ -26,9 +26,5 @@
 			<groupId>org.springframework.retry</groupId>
 			<artifactId>spring-retry</artifactId>
 		</dependency>
-		<dependency>
-			<groupId>com.bdp</groupId>
-			<artifactId>bdp-security</artifactId>
-		</dependency>
 	</dependencies>
 </project>

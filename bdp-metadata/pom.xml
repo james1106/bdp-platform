@@ -32,7 +32,8 @@
 		</dependency>
 		<dependency>
 			<groupId>com.bdp</groupId>
-			<artifactId>bdp-security</artifactId>
+			<artifactId>bdp-framework</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>

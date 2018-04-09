@@ -1,8 +1,5 @@
 package com.bdp.common.msg;
 
-/**
- * Created by ace on 2017/8/23.
- */
 public class BaseResponse {
     private int status = 200;
     private String message;

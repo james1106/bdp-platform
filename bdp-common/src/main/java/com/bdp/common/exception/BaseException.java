@@ -1,8 +1,5 @@
 package com.bdp.common.exception;
 
-/**
- * Created by ace on 2017/9/8.
- */
 public class BaseException extends RuntimeException {
 	private static final long serialVersionUID = 1L;
 	
