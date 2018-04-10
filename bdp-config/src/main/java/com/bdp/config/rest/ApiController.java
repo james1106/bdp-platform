@@ -1,4 +1,4 @@
-package com.bdp.config.controller;
+package com.bdp.config.rest;
 
 import java.net.URI;
 import java.util.List;
@@ -6,18 +6,18 @@ import java.util.Map;
 
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
-
 import com.netflix.appinfo.InstanceInfo;
 import com.netflix.discovery.EurekaClient;
 import com.netflix.discovery.shared.Application;
 
-@RestController
-@RequestMapping("/")
+@Controller
+@RequestMapping("/config")
 public class ApiController {
 
 	// 新版本的Sprign cloud 已经无此接口，只能使用EurekaClient
@@ -25,6 +25,7 @@ public class ApiController {
 	private EurekaClient discoveryClient;
 
 	@GetMapping("/refresh/{app}")
+	@ResponseBody
 	public String refresh(@PathVariable("app") String app) {
 		if (StringUtils.isEmpty(app)) {
 			return "end";
@@ -48,5 +49,10 @@ public class ApiController {
 			}
 		}
 		return "success";
+	}
+	
+	@RequestMapping("/index")
+	public String list() {
+		return "index";
 	}
 }

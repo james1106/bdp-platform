@@ -14,7 +14,7 @@ public class User {
 
 	private String password;
 
-	@Column(name = "realName")
+	@Column(name = "realname")
 	private String realName;
 
 	private String sex;

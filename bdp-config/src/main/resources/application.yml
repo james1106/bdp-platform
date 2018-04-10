@@ -12,42 +12,27 @@ eureka:
 spring:
   application:
     name: bdp-config
-  profiles:
-    active: native
-  cloud:
-    config:
-      server:
-        native:
-          search-locations: configs,./configs
   thymeleaf:
     cache: false
     mode: LEGACYHTML5
-    suffix: .tml
-    remark: suffix后缀改为.tml主要是为了把.tml文件关联到xml编辑器,那样格式化比较漂亮,mode设置为LEGACYHTML5主要是为了兼容element-ui等自定义标签
+    suffix: .html
+    remark: html文件关联到xml编辑器,那样格式化比较漂亮,eclipse html编辑器对自定义标签不认，格化式太差,
+    remark2: mode设置为LEGACYHTML5主要是为了使用thymeleaf兼容element-ui等自定义标签,否则解析报错。
   jackson:
     date-format: yyyy-MM-dd HH:mm:ss
     time-zone: GMT+8
     default-property-inclusion: NON_NULL
+  profiles:
+    active: jdbc
+  cloud:
+    config:
+      server:
+        prefix: properties
+        remark: prefix属性很重要，如果不配置默认为空，在ResourceController,EnvironmentController里面，
+        remark2: 所有的请求都会被拦截,当成对配置文件的请求,导致一些资源文件无法加载,配置前缀后，其它系统连接配置中心时要加上它。
   datasource:
     name: bdp_db
+    driver-class-name: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/bdp_db?useUnicode=true&characterEncoding=UTF8
     username: root
     password: root
-    type: com.alibaba.druid.pool.DruidDataSource
-    driver-class-name: com.mysql.jdbc.Driver
-    filters: stat
-    maxActive: 20
-    initialSize: 1
-    maxWait: 60000
-    minIdle: 1
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: select 'x'
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxOpenPreparedStatements: 20
-mybatis:
-  basepackage: com.bdp.*.mapper
-  xmlLocation: classpath:mapper/**/*.xml
