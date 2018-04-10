@@ -14,7 +14,7 @@ import tk.mybatis.spring.mapper.MapperScannerConfigurer;
 @Configuration
 @AutoConfigureAfter(MybatisConfiguration.class)
 public class MapperConfiguration {
-
+	
 	@Bean
 	public MapperScannerConfigurer mapperScannerConfigurer(Environment environment) {
 		RelaxedPropertyResolver resolver = new RelaxedPropertyResolver(environment);

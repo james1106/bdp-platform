@@ -27,7 +27,7 @@ spring:
   cloud:
     config:
       server:
-        prefix: properties
+        prefix: profiles
         remark: prefix属性很重要，如果不配置默认为空，在ResourceController,EnvironmentController里面，
         remark2: 所有的请求都会被拦截,当成对配置文件的请求,导致一些资源文件无法加载,配置前缀后，其它系统连接配置中心时要加上它。
   datasource:

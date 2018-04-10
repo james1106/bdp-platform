@@ -72,7 +72,7 @@ public class MybatisConfiguration{
 	@Value("${spring.datasource.maxOpenPreparedStatements:20}")
 	private int maxOpenPreparedStatements;
 	//////////////////////////////////////////////////////////////////////////
-
+	
 	@Bean
     public DataSource druidDataSource() {
         DruidDataSource druidDataSource = new DruidDataSource();

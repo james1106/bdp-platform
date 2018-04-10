@@ -17,7 +17,11 @@ public class UserController extends BaseController<UserBiz, User> {
 	@RequestMapping(value = "/info/{userName}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> getUserInfo(@PathVariable("userName") String userName) throws Exception {
-		User userInfo = baseBiz.selectById(userName);
+		System.out.println(User.class.getClassLoader());
+		Object userInfo = baseBiz.selectById(userName);
+		if(userInfo instanceof User) {
+			System.out.println(((User)userInfo).getRealName());
+		}
 		if (userInfo == null) {
 			return ResponseEntity.status(401).body(false);
 		} else {
