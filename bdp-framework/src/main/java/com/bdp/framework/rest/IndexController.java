@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/")
 public class IndexController {
 
-	@Value("${framework.busiSysCode}")
+	@Value("${bdp-platform.sys-code}")
 	private String busiSysId;
 
 	@RequestMapping("/index")

@@ -17,11 +17,18 @@ public class UserController extends BaseController<UserBiz, User> {
 	@RequestMapping(value = "/info/{userName}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<?> getUserInfo(@PathVariable("userName") String userName) throws Exception {
-		System.out.println(User.class.getClassLoader());
-		Object userInfo = baseBiz.selectById(userName);
-		if(userInfo instanceof User) {
-			System.out.println(((User)userInfo).getRealName());
+		User userInfo = baseBiz.selectById(userName);
+		if (userInfo == null) {
+			return ResponseEntity.status(401).body(false);
+		} else {
+			return ResponseEntity.ok(userInfo);
 		}
+	}
+	
+	@RequestMapping(value = "/getUserByUserName/{userName}", method = RequestMethod.GET)
+	@ResponseBody
+	public ResponseEntity<?> getUserInfoByUserName(@PathVariable("userName") String userName) throws Exception {
+		User userInfo = baseBiz.getUserInfo(userName);
 		if (userInfo == null) {
 			return ResponseEntity.status(401).body(false);
 		} else {

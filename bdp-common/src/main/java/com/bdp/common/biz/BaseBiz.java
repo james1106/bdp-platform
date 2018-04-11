@@ -79,11 +79,23 @@ public abstract class BaseBiz<M extends Mapper<T>, T> {
 
 	}
 
-	public List<T> selectByExample(Object example) {
+	public List<T> selectByExample(Example example) {
 		return mapper.selectByExample(example);
 	}
 
-	public int selectCountByExample(Object example) {
+	public T selectOneByExample(Example example) {
+		List<T> list = mapper.selectByExample(example);
+		if (list.size() > 0) {
+			return list.get(0);
+		}
+		return null;
+	}
+
+	public int deleteByExample(Example example) {
+		return mapper.deleteByExample(example);
+	}
+
+	public int selectCountByExample(Example example) {
 		return mapper.selectCountByExample(example);
 	}
 

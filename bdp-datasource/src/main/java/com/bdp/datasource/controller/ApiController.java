@@ -7,14 +7,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.refresh.ContextRefresher;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bdp.datasource.configs.RefreshObj;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/ds")
 public class ApiController {
 	
 	@Autowired
@@ -46,11 +45,8 @@ public class ApiController {
 		return "success";
 	}
 
-	@GetMapping("/dataSource/{id}")
-	public String getDataSourceById(@PathVariable("id") String id) throws Exception {
-		if ("error".equals(id)) {// 如果传入的id为error,线程停3s,用来测试
-			Thread.sleep(3000L);
-		}
-		return "Return " + refreshObj.getUserRole() + " " + refreshObj.getYear() + " 年   datasource ID:" + id + " from DataSource";
+	@GetMapping("/config")
+	public String getDataSourceById() throws Exception {
+		return "Return " + refreshObj.getUserRole() + " " + refreshObj.getYear();
 	}
 }

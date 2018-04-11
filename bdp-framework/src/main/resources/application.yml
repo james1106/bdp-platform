@@ -4,8 +4,8 @@ logging:
   level:
     tk.mybatis: DEBUG
     com.bdp.framework: DEBUG
-framework:
-  busiSysCode: framework
+bdp-platform:
+  sys-code: framework
 spring:
   application:
     name: bdp-framework
