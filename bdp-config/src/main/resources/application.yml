@@ -1,0 +1,28 @@
+bdp-platform:
+  sys-code: bdp-config
+server:
+  port: 8082
+eureka:
+  instance:
+    prefer-ip-address: true
+    instance-id: ${spring.cloud.client.ipaddress}:${server.port}
+    status-page-url: http://${spring.cloud.client.ipaddress}:${server.port}/info
+  client:
+    service-url.defaultZone: http://localhost:8081/eureka
+spring:
+  application:
+    name: bdp-config
+  profiles:
+    active: mybatis
+  cloud:
+    config:
+      server:
+        prefix: profiles
+        remark: prefix属性很重要，如果不配置默认为空，在ResourceController,EnvironmentController里面，
+        remark2: 所有的请求都会被拦截,当成对配置文件的请求,导致一些资源文件无法加载,配置前缀后，其它系统连接配置中心时要加上它。
+  datasource:
+    name: bdp_db
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bdp_db?useUnicode=true&characterEncoding=UTF8
+    username: root
+    password: root

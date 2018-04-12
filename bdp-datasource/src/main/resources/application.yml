@@ -1,0 +1,5 @@
+bdp-platform:
+  sys-code: bdp-datasource
+spring:
+  application:
+    name: bdp-datasource
