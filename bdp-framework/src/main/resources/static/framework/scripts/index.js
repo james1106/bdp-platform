@@ -22,7 +22,7 @@ var vm = new Vue({
 	methods : {
 		getUserInfo : function() {
 			//注意user前面要/,加/表示从网站的根路径开始，不加则表示从当前路径，会出错
-			axios.get('/user/getUserByUserName/JACK').then(function(response) {
+			axios.get(proxy+'/user/getUserByUserName/JACK').then(function(response) {
 				vm.userInfo = response.data;
 			});
 		}
