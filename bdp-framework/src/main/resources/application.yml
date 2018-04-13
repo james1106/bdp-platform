@@ -6,7 +6,7 @@ logging:
     com.bdp.framework: DEBUG
 bdp-platform:
   sys-code: framework
-  proxy-mapping: 
+  zuul-proxy: 
 spring:
   application:
     name: bdp-framework

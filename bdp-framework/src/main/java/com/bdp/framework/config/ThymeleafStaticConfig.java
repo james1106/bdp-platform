@@ -2,6 +2,7 @@ package com.bdp.framework.config;
 
 import javax.annotation.PostConstruct;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
@@ -13,11 +14,15 @@ public class ThymeleafStaticConfig {
 	@Autowired
 	private ThymeleafViewResolver viewResolver;
 
-	@Value("${bdp-platform.proxy-mapping:}")
-	private String proxyMapping;
+	@Value("${bdp-platform.zuul-proxy:}")
+	private String zuulProxy;
 
 	@PostConstruct
 	public void init() {
-		viewResolver.addStaticVariable("proxy", proxyMapping);
+		if (StringUtils.isNotEmpty(zuulProxy)) {
+			viewResolver.addStaticVariable("zuulProxy", "/" + zuulProxy);
+		} else {
+			viewResolver.addStaticVariable("zuulProxy", "");
+		}
 	}
 }

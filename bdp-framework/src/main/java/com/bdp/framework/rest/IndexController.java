@@ -12,7 +12,12 @@ public class IndexController {
 	private String busiSysId;
 
 	@RequestMapping("/index")
-	public String list() {
+	public String index() {
 		return "framework/index";
+	}
+	
+	@RequestMapping("/list")
+	public String list() {
+		return "framework/user/list";
 	}
 }
