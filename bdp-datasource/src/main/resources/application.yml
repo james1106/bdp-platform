@@ -1,6 +1,7 @@
 bdp-platform:
   sys-code: bdp-datasource
-  zuul-proxy: 
 spring:
   application:
     name: bdp-datasource
+  config:
+    name: 

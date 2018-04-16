@@ -51,7 +51,12 @@ public class ApiController {
 	}
 	
 	@RequestMapping("/index")
-	public String list() {
+	public String index() {
 		return "index";
+	}
+	
+	@RequestMapping("/list")
+	public String list() {
+		return "list";
 	}
 }

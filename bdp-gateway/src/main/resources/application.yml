@@ -53,7 +53,7 @@ ribbon:
 dps:
   ribbon:
     remark1: NIWSServerListClassName很重要，这个属性设置了服务列表的提供方式，如果不设置会默认使系统注册的，即使用DiscoveryEnabledNIWSServerList，从eureka获取服务列表。注意参考ribbon文档。
-    remark2: 同时从对于不同的ribbon客户端可以设置不同的NIWSServerListClassName可知对于每个RibbonClient，Spring都会生成子容器，以实现隔离，这里也要理解一下Spring父子容器的概念。如果通过编写配置属性注意
+    remark2: 同时对于不同的ribbon客户端可以设置不同的NIWSServerListClassName可知对于每个RibbonClient，Spring都会生成子容器，以实现隔离，这里也要理解一下Spring父子容器的概念。如果通过编写配置属性注意
     remark3: 配置类的包路径不要被父容器扫描到，既不要放在与@SpringBootApplication标注的主类同一包或子包下面。这一点在Spring文档有有说明强调。要特别注意
     NIWSServerListClassName: com.netflix.loadbalancer.ConfigurationBasedServerList
     listOfServers: 127.0.0.1:8080

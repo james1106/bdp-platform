@@ -7,10 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.refresh.ContextRefresher;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bdp.datasource.configs.RefreshObj;
+import com.bdp.datasource.service.ConfigService;
 
 @RestController
 @RequestMapping("/ds")
@@ -18,6 +20,9 @@ public class ApiController {
 	
 	@Autowired
 	private ContextRefresher refresher;
+	
+	@Autowired
+	private ConfigService configService;
 
 	// 演示从配置服务读取配置信息,$符号取属性值，#符号计算表达示
 	@Value("${login.current.year}")
@@ -48,5 +53,10 @@ public class ApiController {
 	@GetMapping("/config")
 	public String getDataSourceById() throws Exception {
 		return "Return " + refreshObj.getUserRole() + " " + refreshObj.getYear();
+	}
+	
+	@GetMapping("/hello/{name}")
+	public String sayHello(@PathVariable("name")String name) throws Exception {
+		return configService.sayHello(name);
 	}
 }

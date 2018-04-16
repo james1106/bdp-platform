@@ -1,6 +1,5 @@
 bdp-platform:
   sys-code: bdp-config
-  zuul-proxy: config
 server:
   port: 8082
 eureka:

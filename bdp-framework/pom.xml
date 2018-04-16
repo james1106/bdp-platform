@@ -29,6 +29,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
+		<!-- 重要，使用thymeleaf支持布局，这个引用网上提到的极少，大坑 -->
+		<dependency>
+            <groupId>nz.net.ultraq.thymeleaf</groupId>
+            <artifactId>thymeleaf-layout-dialect</artifactId>
+        </dependency>
 		<!-- 重要，使用thymeleaf支持element-ui等前端框架的标签 -->
 		<dependency>
 			<groupId>net.sourceforge.nekohtml</groupId>
