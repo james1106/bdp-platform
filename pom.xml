@@ -82,6 +82,7 @@
 		<module>bdp-datasource</module>
 		<module>bdp-metadata</module>
 		<module>bdp-minibi</module>
+		<module>bdp-authserver</module>
 	</modules>
 
 	<repositories>
