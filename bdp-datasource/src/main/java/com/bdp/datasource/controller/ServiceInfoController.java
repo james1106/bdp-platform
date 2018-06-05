@@ -1,5 +1,6 @@
 package com.bdp.datasource.controller;
 
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,4 +13,9 @@ public class ServiceInfoController {
 	public String info() {
 		return "Wellcome BDP DataSource Center.";
 	}
+	
+    @GetMapping("/user")
+    public Authentication user(Authentication user) { 
+        return user;
+    }
 }
