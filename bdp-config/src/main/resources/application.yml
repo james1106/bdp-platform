@@ -8,7 +8,8 @@ eureka:
     instance-id: ${spring.cloud.client.ipaddress}:${server.port}
     status-page-url: http://${spring.cloud.client.ipaddress}:${server.port}/info
   client:
-    service-url.defaultZone: http://localhost:8081/eureka
+    service-url:
+      defaultZone: http://localhost:8081/eureka
 spring:
   application:
     name: bdp-config
@@ -26,3 +27,5 @@ spring:
     url: jdbc:mysql://localhost:3306/bdp_db?useUnicode=true&characterEncoding=UTF8
     username: root
     password: root
+    
+debug: true

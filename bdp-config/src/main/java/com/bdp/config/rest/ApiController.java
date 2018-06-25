@@ -21,7 +21,7 @@ import com.netflix.discovery.shared.Application;
 public class ApiController {
 
 	@Autowired
-	private EurekaClient discoveryClient;
+	private EurekaClient eurekaClient;
 
 	@GetMapping("/refresh/{app}")
 	@ResponseBody
@@ -29,7 +29,7 @@ public class ApiController {
 		if (StringUtils.isEmpty(app)) {
 			return "end";
 		}
-		Application application = discoveryClient.getApplication(app);
+		Application application = eurekaClient.getApplication(app);
 		List<InstanceInfo> infos = application.getInstances();
 		for (InstanceInfo instanceInfo : infos) {
 			Map<String, String> metas = instanceInfo.getMetadata();

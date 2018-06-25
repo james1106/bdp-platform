@@ -1,18 +1,15 @@
-package com.bdp.config;
+package com.bdp.schedule;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 @SpringBootApplication
-@EnableConfigServer
-@EnableFeignClients
 @EnableEurekaClient
-public class ConfigServerApplication {
-
+@EnableFeignClients
+public class ScheduleServerApplication {
 	public static void main(String[] args) {
-		SpringApplication.run(ConfigServerApplication.class, args);
+		SpringApplication.run(ScheduleServerApplication.class, args);
 	}
 }
