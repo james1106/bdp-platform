@@ -1,12 +1,10 @@
 package com.bdp.schedule.rest;
 
-import javax.ws.rs.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,7 +14,7 @@ import com.bdp.schedule.dto.ScheduleInfo;
 import com.bdp.schedule.dto.TriggerInfo;
 import com.bdp.schedule.service.ScheduleService;
 
-@Controller
+@RestController
 @RequestMapping("/schedule")
 public class ScheduleRest {
 
@@ -54,8 +52,8 @@ public class ScheduleRest {
 	 * @throws Exception
 	 */
 	@PutMapping("/update/{appId}/{group}/{name}")
-	public ResponseEntity<String> update(@PathParam("appId") String appId, @PathParam("group") String group,
-			@PathParam("name") String name, TriggerInfo triggerInfo) throws Exception {
+	public ResponseEntity<String> update(@PathVariable("appId") String appId, @PathVariable("group") String group,
+			@PathVariable("name") String name, TriggerInfo triggerInfo) throws Exception {
 		return ResponseEntity.ok("SUCCESS");
 	}
 
@@ -72,8 +70,8 @@ public class ScheduleRest {
 	 * @throws Exception
 	 */
 	@GetMapping("/{appId}/{group}/{name}")
-	public ResponseEntity<String> get(@PathParam("appId") String appId, @PathParam("group") String group,
-			@PathParam("name") String name) throws Exception {
+	public ResponseEntity<String> get(@PathVariable("appId") String appId, @PathVariable("group") String group,
+			@PathVariable("name") String name) throws Exception {
 
 		return ResponseEntity.ok("SUCCESS");
 	}
@@ -87,7 +85,7 @@ public class ScheduleRest {
 	 * @throws Exception
 	 */
 	@GetMapping("/{appId}")
-	public ResponseEntity<String> list(@PathParam("appId") String appId) throws Exception {
+	public ResponseEntity<String> list(@PathVariable("appId") String appId) throws Exception {
 
 		return ResponseEntity.ok("SUCCESS");
 	}
@@ -105,8 +103,8 @@ public class ScheduleRest {
 	 * @throws Exception
 	 */
 	@DeleteMapping("/{appId}/{group}/{name}")
-	public ResponseEntity<String> delete(@PathParam("appId") String appId, @PathParam("group") String group,
-			@PathParam("name") String name) throws Exception {
+	public ResponseEntity<String> delete(@PathVariable("appId") String appId, @PathVariable("group") String group,
+			@PathVariable("name") String name) throws Exception {
 		scheduleService.delete(appId, group, name);
 		return ResponseEntity.ok("SUCCESS");
 	}
