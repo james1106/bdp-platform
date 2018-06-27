@@ -4,8 +4,8 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "fw_busisys")
-public class BusiSys {
+@Table(name = "bdp_fw_busisys")
+public class Busisys {
 	@Id
 	private String id;
 

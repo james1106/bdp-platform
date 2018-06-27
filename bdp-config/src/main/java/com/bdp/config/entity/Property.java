@@ -4,27 +4,27 @@ import javax.persistence.Column;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "cfg_property")
+@Table(name = "bdp_config_property")
 public class Property {
 
 	@Id
 	private String id;
-	
+
 	@Column(name = "proKey")
 	private String proKey;
-	
+
 	@Column(name = "proValue")
 	private String proValue;
-	
+
 	private String application;
-	
+
 	private String profile;
-	
+
 	private String label;
-	
+
 	@Column(name = "orderNO")
 	private int orderNO;
-	
+
 	private String remark;
 
 	public String getId() {
@@ -90,5 +90,5 @@ public class Property {
 	public void setRemark(String remark) {
 		this.remark = remark;
 	}
-	
+
 }

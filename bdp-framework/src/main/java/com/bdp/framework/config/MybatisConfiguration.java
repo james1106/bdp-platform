@@ -74,7 +74,7 @@ public class MybatisConfiguration{
 	//////////////////////////////////////////////////////////////////////////
 	
 	@Bean
-    public DataSource druidDataSource() {
+    public DataSource dataSource() {
         DruidDataSource druidDataSource = new DruidDataSource();
         druidDataSource.setUrl(url);
         druidDataSource.setUsername(userName);

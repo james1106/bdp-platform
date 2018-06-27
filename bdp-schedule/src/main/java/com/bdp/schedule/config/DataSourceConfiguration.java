@@ -11,9 +11,9 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import com.alibaba.druid.pool.DruidDataSource;
 import com.bdp.schedule.properties.DataSourceProperties;
 
-@Configuration
-@EnableTransactionManagement
-@EnableConfigurationProperties(DataSourceProperties.class)
+//@Configuration
+//@EnableTransactionManagement
+//@EnableConfigurationProperties(DataSourceProperties.class)
 public class DataSourceConfiguration {
 
 	@Autowired
