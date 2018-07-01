@@ -1,63 +1,102 @@
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="framework/tpl">
 <head>
-<meta charset="UTF-8" />
-<title>开发平台</title>
-<link
-	th:href="|${zuulProxy}/framework/vendors/element-2.3.3/element-ui.css|"
-	rel="stylesheet" />
-<script type="text/javascript"
-	th:src="${zuulProxy}+'/framework/vendors/vue-2.5.16/vue.min.js'"></script>
-<script type="text/javascript"
-	th:src="${zuulProxy}+'/framework/vendors/axios-0.18.0/axios.min.js'"></script>
-<script type="text/javascript"
-	th:src="${zuulProxy}+'/framework/vendors/element-2.3.3/element-ui.js'"></script>
-<script th:inline="javascript" type="text/javascript">
-    var zuulProxy = [[${zuulProxy}]];
-    if(zuulProxy==null){
-    	zuulProxy='';
-    }
-</script>
+<title>首页</title>
 </head>
-<body style="margin: 0px;">
-	<div id="app">
-		<div id="nav">
-			<el-menu class="el-menu-demo" mode="horizontal"
-				background-color="#545c64" text-color="#fff"
-				active-text-color="#ffd04b"> <el-menu-item index="1">处理中心</el-menu-item>
-			<el-submenu index="2"> <template slot="title">
-			我的工作台 </template> <el-menu-item index="2-1">选项1</el-menu-item> <el-menu-item
-				index="2-2">选项2</el-menu-item> <el-menu-item index="2-3">选项3</el-menu-item>
-			<el-submenu index="2-4"> <template slot="title">选项4</template>
-			<el-menu-item index="2-4-1">选项1</el-menu-item> <el-menu-item
-				index="2-4-2">选项2</el-menu-item> <el-menu-item index="2-4-3">选项3</el-menu-item>
-			</el-submenu> </el-submenu> <el-menu-item index="3" disabled>消息中心</el-menu-item> <el-menu-item
-				index="4"> <a href="https://www.ele.me"
-				target="_blank">订单管理</a> </el-menu-item> <el-tag type="danger">{{userInfo.realName}}</el-tag>
-			</el-menu>
-		</div>
-		<div id="table">
-			<el-row class="tac"> <el-col :span="4"> <el-menu
-				default-active="2" class="el-menu-vertical-demo"
-				background-color="#545c64" text-color="#fff"
-				active-text-color="#ffd04b"> <el-submenu index="1">
-			<template slot="title"> <i class="el-icon-location"></i> <span>导航一</span>
-			</template> <el-menu-item-group> <template slot="title">分组一</template>
-			<el-menu-item index="1-1">选项1</el-menu-item> <el-menu-item
-				index="1-2">选项2</el-menu-item> </el-menu-item-group> <el-menu-item-group title="分组2">
-			<el-menu-item index="1-3">选项3</el-menu-item> </el-menu-item-group> <el-submenu index="1-4">
-			<template slot="title">选项4</template> <el-menu-item index="1-4-1">选项1</el-menu-item>
-			</el-submenu> </el-submenu> <el-menu-item index="2"> <i class="el-icon-menu"></i>
-			<span slot="title">导航二</span> </el-menu-item> <el-menu-item index="3" disabled>
-			<i class="el-icon-document"></i> <span slot="title">导航三</span> </el-menu-item> <el-menu-item
-				index="4"> <i class="el-icon-setting"></i> <span
-				slot="title">导航四</span> </el-menu-item> </el-menu> </el-col> <el-col :span="20"> <el-table
-				v-bind:data="tableData" style="width: 100%"> <el-table-column
-				prop="date" label="日期" width="180"> </el-table-column> <el-table-column
-				prop="name" label="姓名" width="180"> </el-table-column> <el-table-column
-				prop="address" label="地址"> </el-table-column> </el-table> </el-col> </el-row>
+<body class="layui-layout-body">
+	<div layout:fragment="content">
+		<div class="layui-layout layui-layout-admin">
+			<div class="layui-header">
+				<div class="layui-logo">layui 后台布局</div>
+				<!-- 头部区域（可配合layui已有的水平导航） -->
+				<ul class="layui-nav layui-layout-left">
+					<li class="layui-nav-item"><a href="">控制台</a></li>
+					<li class="layui-nav-item"><a href="">商品管理</a></li>
+					<li class="layui-nav-item"><a href="">用户</a></li>
+					<li class="layui-nav-item"><a href="javascript:;">其它系统</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="">邮件管理</a>
+							</dd>
+							<dd>
+								<a href="">消息管理</a>
+							</dd>
+							<dd>
+								<a href="">授权管理</a>
+							</dd>
+						</dl></li>
+				</ul>
+				<ul class="layui-nav layui-layout-right">
+					<li class="layui-nav-item"><a href="javascript:;"> <img
+							src="http://t.cn/RCzsdCq" class="layui-nav-img"> 贤心
+					</a>
+						<dl class="layui-nav-child">
+							<dd>
+								<a href="">基本资料</a>
+							</dd>
+							<dd>
+								<a href="">安全设置</a>
+							</dd>
+						</dl></li>
+					<li class="layui-nav-item"><a href="">退了</a></li>
+				</ul>
+			</div>
+			<div class="layui-side layui-bg-black">
+				<div class="layui-side-scroll">
+					<!-- 左侧导航区域（可配合layui已有的垂直导航） -->
+					<ul class="layui-nav layui-nav-tree" lay-filter="test">
+						<li class="layui-nav-item layui-nav-itemed"><a class=""
+							href="javascript:;">所有商品</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;">列表一</a>
+								</dd>
+								<dd>
+									<a href="javascript:;">列表二</a>
+								</dd>
+								<dd>
+									<a href="javascript:;">列表三</a>
+								</dd>
+								<dd>
+									<a href="">超链接</a>
+								</dd>
+							</dl></li>
+						<li class="layui-nav-item"><a href="javascript:;">解决方案</a>
+							<dl class="layui-nav-child">
+								<dd>
+									<a href="javascript:;">列表一</a>
+								</dd>
+								<dd>
+									<a href="javascript:;">列表二</a>
+								</dd>
+								<dd>
+									<a href="">超链接</a>
+								</dd>
+							</dl></li>
+						<li class="layui-nav-item"><a href="">云市场</a></li>
+						<li class="layui-nav-item"><a href="">发布商品</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="layui-body">
+				<!-- 内容主体区域 -->
+				<div style="padding: 15px;">内容主体区域</div>
+			</div>
+			<div class="layui-footer">
+				<!-- 底部固定区域 -->
+				© layui.com - 底部固定区域
+			</div>
 		</div>
 	</div>
-	<script th:src="@{{proxy}/framework/scripts/index.js(proxy=${zuulProxy})}"
-		type="text/javascript"></script>
+	<div layout:fragment="scriptArea">
+		<script>
+			//JavaScript代码区域
+			layui.use('element', function() {
+				var element = layui.element;
+			});
+		</script>
+	</div>
 </body>
 </html>

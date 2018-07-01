@@ -1,19 +1,18 @@
 package com.bdp.config.entity;
 
-import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Table(name = "bdp_config_property")
+@Entity
+@Table(name = "bdp_cfg_property")
 public class Property {
 
 	@Id
 	private String id;
 
-	@Column(name = "proKey")
 	private String proKey;
 
-	@Column(name = "proValue")
 	private String proValue;
 
 	private String application;
@@ -22,7 +21,6 @@ public class Property {
 
 	private String label;
 
-	@Column(name = "orderNO")
 	private int orderNO;
 
 	private String remark;

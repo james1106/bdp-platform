@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+<head>
+<!-- 模板文件，用于引入公共资源，所有页面应该引用这个文件 -->
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet"
+	th:href="|${zuulProxy}/framework/vendors/layui-v2.3.0/css/layui.css|" />
+<script type="text/javascript"
+	th:src="|${zuulProxy}/framework/vendors/vue-2.5.16/vue.min.js|"></script>
+<script type="text/javascript"
+	th:src="|${zuulProxy}/framework/vendors/axios-0.18.0/axios.min.js|"></script>
+<script th:inline="javascript" type="text/javascript">
+    var zuulProxy = [[${zuulProxy}]];
+    if(zuulProxy==null){
+    	zuulProxy='';
+    }
+</script>
+</head>
+<body>
+	<div class="container" layout:fragment="content"></div>
+	<script type="text/javascript"
+		th:src="|${zuulProxy}/framework/vendors/layui-v2.3.0/layui.all.js|"></script>
+	<div class="scriptArea" layout:fragment="scriptArea"></div>
+</body>
+</html>

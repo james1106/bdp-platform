@@ -9,6 +9,7 @@ import java.util.List;
 public class TreeNode {
     protected int id;
     protected int parentId;
+    List<TreeNode> children = new ArrayList<TreeNode>();
 
     public List<TreeNode> getChildren() {
         return children;
@@ -17,8 +18,6 @@ public class TreeNode {
     public void setChildren(List<TreeNode> children) {
         this.children = children;
     }
-
-    List<TreeNode> children = new ArrayList<TreeNode>();
 
     public int getId() {
         return id;

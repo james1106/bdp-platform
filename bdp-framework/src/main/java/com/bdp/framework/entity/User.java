@@ -1,9 +1,19 @@
 package com.bdp.framework.entity;
 
-import javax.persistence.Column;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.ConstraintMode;
+import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ForeignKey;
+import javax.persistence.JoinColumn;
+import javax.persistence.OrderBy;
 import javax.persistence.Table;
 
+@Entity
 @Table(name = "bdp_fw_user")
 public class User {
 
@@ -14,8 +24,7 @@ public class User {
 
 	private String password;
 
-	@Column(name = "realname")
-	private String realName;
+	private String realname;
 
 	private String sex;
 
@@ -24,6 +33,12 @@ public class User {
 	private String image;
 
 	private String address;
+
+	@ManyToMany(cascade = CascadeType.REFRESH)
+	@JoinTable(name = "bdp_fw_User_Role", joinColumns = { @JoinColumn(name = "user_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "role_id") }, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+	@OrderBy("orderNO asc")
+	private List<Role> roles;
 
 	public String getId() {
 		return id;
@@ -49,12 +64,12 @@ public class User {
 		this.password = password;
 	}
 
-	public String getRealName() {
-		return realName;
+	public String getRealname() {
+		return realname;
 	}
 
-	public void setRealName(String realName) {
-		this.realName = realName;
+	public void setRealname(String realname) {
+		this.realname = realname;
 	}
 
 	public String getSex() {
@@ -88,4 +103,13 @@ public class User {
 	public void setAddress(String address) {
 		this.address = address;
 	}
+
+	public List<Role> getRoles() {
+		return roles;
+	}
+
+	public void setRoles(List<Role> roles) {
+		this.roles = roles;
+	}
+
 }

@@ -1,11 +1,29 @@
 package com.bdp.framework.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.util.List;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.ConstraintMode;
+import javax.persistence.Entity;
+import javax.persistence.ForeignKey;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OrderBy;
+import javax.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+@Entity
 @Table(name = "bdp_fw_menu")
 public class Menu {
+
+	public static final String TYPE_FRAME = "frame";
+	public static final String TYPE_LAYER = "layer";
+	public static final String TYPE_BLANK = "blank";
+	public static final String TYPE_SELF = "self";
+	public static final String TYPE_JS = "javascript";
 
 	@Id
 	private String id;
@@ -18,18 +36,26 @@ public class Menu {
 
 	private String href;
 
-	private String type;// nomal,popup,blank,redirect
+	private String type;
 
-	@Column(name = "parentId")
-	private String parentId;
-
-	@Column(name = "orderNo")
-	private int orderNo;
-
+	@Column(length = 2000)
 	private String description;
-	
-	@Column(name = "busiSysId")
-	private String busiSysId;
+
+	@ManyToOne(cascade = { CascadeType.REFRESH }, optional = true)
+	@JoinColumn(name = "parent_id")
+	@JsonIgnore
+	private Menu parent;
+
+	@OneToMany(mappedBy = "parent", cascade = { CascadeType.ALL })
+	@OrderBy("orderNO asc")
+	private List<Menu> children;
+
+	private int orderNO;
+
+	@ManyToOne(cascade = { CascadeType.REFRESH }, optional = false)
+	@JoinColumn(name = "system_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+	@JsonIgnore
+	private System system;
 
 	public String getId() {
 		return id;
@@ -79,22 +105,6 @@ public class Menu {
 		this.type = type;
 	}
 
-	public String getParentId() {
-		return parentId;
-	}
-
-	public void setParentId(String parentId) {
-		this.parentId = parentId;
-	}
-
-	public int getOrderNo() {
-		return orderNo;
-	}
-
-	public void setOrderNo(int orderNo) {
-		this.orderNo = orderNo;
-	}
-
 	public String getDescription() {
 		return description;
 	}
@@ -103,11 +113,20 @@ public class Menu {
 		this.description = description;
 	}
 
-	public String getBusiSysId() {
-		return busiSysId;
+	public int getOrderNO() {
+		return orderNO;
 	}
 
-	public void setBusiSysId(String busiSysId) {
-		this.busiSysId = busiSysId;
+	public void setOrderNO(int orderNO) {
+		this.orderNO = orderNO;
 	}
+
+	public System getSystem() {
+		return system;
+	}
+
+	public void setSystem(System system) {
+		this.system = system;
+	}
+
 }
