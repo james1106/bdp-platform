@@ -18,12 +18,19 @@ public class AuthServerSecurityConfig extends WebSecurityConfigurerAdapter {
 	private PasswordEncoder passwordEncoder;
 
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
+	protected void configure(AuthenticationManagerBuilder auth)
+			throws Exception {
+		auth.userDetailsService(userDetailsService)
+				.passwordEncoder(passwordEncoder);
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.formLogin().and().authorizeRequests().anyRequest().authenticated();
+		http.formLogin().loginPage("/login")
+				.loginProcessingUrl("/oauth/loginForm").and()
+				.authorizeRequests().antMatchers("/login").permitAll()
+				.antMatchers("/framework/*").permitAll()
+				.antMatchers("/static/*").permitAll().anyRequest()
+				.authenticated().and().cors().disable();
 	}
 }

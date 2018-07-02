@@ -1,5 +1,0 @@
-bdp-platform:
-  sys-code: bdp-authserver
-spring:
-  application:
-    name: bdp-authserver

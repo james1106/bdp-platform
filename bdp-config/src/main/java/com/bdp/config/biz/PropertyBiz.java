@@ -29,7 +29,7 @@ public class PropertyBiz extends BaseBizImpl<Property> {
 			label += " AND p.label=? ";
 			args.add(label);
 		}
-		return getEntitiesByJpql(jpql, args);
+		return getEntitiesByJpql(jpql, args.toArray());
 	}
 
 }
