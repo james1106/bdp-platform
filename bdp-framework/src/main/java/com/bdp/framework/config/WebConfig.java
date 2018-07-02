@@ -9,7 +9,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistration;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -19,8 +18,16 @@ public class WebConfig implements WebMvcConfigurer {
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		ResourceHandlerRegistration registration = registry.addResourceHandler("/framework/**");
-		registration.addResourceLocations("classpath:/static/framework/", "classpath:/static/framework/");
+		// 通配符是**号
+		// addResourceLocations中使用classpath且以/结尾表示路径
+		registry.addResourceHandler("/framework/**").addResourceLocations(
+				"classpath:/static/framework/",
+				"classpath:/templates/framework/");
+
+		if (!registry.hasMappingForPattern("/static/**")) {
+			registry.addResourceHandler("/static/**")
+					.addResourceLocations("classpath:/static/");
+		}
 	}
 
 	public void addInterceptors(InterceptorRegistry registry) {
@@ -35,8 +42,8 @@ public class WebConfig implements WebMvcConfigurer {
 	 */
 	class ProxyHeaderInterceptor implements HandlerInterceptor {
 		@Override
-		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
-				throws Exception {
+		public boolean preHandle(HttpServletRequest request,
+				HttpServletResponse response, Object handler) throws Exception {
 			String zuulProxy = request.getHeader("zuulProxy");
 			if (StringUtils.isNotEmpty(zuulProxy)) {
 				// 设置在request中的属性可以直接被thymeleaf通过${}引用
