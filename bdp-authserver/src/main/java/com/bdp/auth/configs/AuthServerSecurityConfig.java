@@ -18,18 +18,14 @@ public class AuthServerSecurityConfig extends WebSecurityConfigurerAdapter {
 	private PasswordEncoder passwordEncoder;
 
 	@Override
-	protected void configure(AuthenticationManagerBuilder auth)
-			throws Exception {
-		auth.userDetailsService(userDetailsService)
-				.passwordEncoder(passwordEncoder);
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService).passwordEncoder(passwordEncoder);
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.formLogin().loginPage("/login")
-				.loginProcessingUrl("/oauth/loginForm").and()
-				.authorizeRequests()
-				.antMatchers("/login", "/framework/**", "/static/**")
-				.permitAll().anyRequest().denyAll().and().csrf().disable();
+		String[] permits = new String[] { "/login", "/loginForm", "/oauth/**", "/framework/**", "/static/**" };
+		http.formLogin().loginPage("/login").loginProcessingUrl("/loginForm").and().authorizeRequests()
+				.antMatchers(permits).permitAll().anyRequest().denyAll().and().csrf().disable();
 	}
 }

@@ -10,4 +10,8 @@ import com.bdp.framework.entity.User;
 @Transactional(rollbackFor = Exception.class)
 public class UserBiz extends BaseBizImpl<User> {
 
+	public User readByName(String username) {
+		return getEntityByJpql("select u from User u where u.username=?", username);
+	}
+	
 }

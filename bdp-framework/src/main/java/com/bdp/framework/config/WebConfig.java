@@ -14,6 +14,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration("frameworkWebConfig")
 public class WebConfig implements WebMvcConfigurer {
+
 	Logger logger = LoggerFactory.getLogger(WebConfig.class);
 
 	@Override

@@ -4,8 +4,8 @@
 	layout:decorator="framework/tpl">
 <head>
 <title>登录控制台</title>
-<link rel="stylesheet" href="static/admin.css" />
-<link rel="stylesheet" href="static/login.css" />
+<link rel="stylesheet" href="static/styles/admin.css" />
+<link rel="stylesheet" href="static/styles/login.css" />
 </head>
 <body>
 	<div layout:fragment="content">
@@ -17,7 +17,7 @@
 				</div>
 				<div
 					class="layadmin-user-login-box layadmin-user-login-body layui-form">
-					<form class="layui-form" action="/oauth/loginForm">
+					<form class="layui-form" action="/loginForm" method="post">
 						<div class="layui-form-item">
 							<label
 								class="layadmin-user-login-icon layui-icon layui-icon-username"
@@ -70,9 +70,8 @@
 			!function() {
 				var layer = layui.layer, form = layui.form;
 				var form = layui.form;
-				//监听提交
+				//监听提交,可在此外验证输入是否合法
 				form.on('submit(loginForm)', function(data) {
-					layer.msg(JSON.stringify(data.field));
 					return true;
 				});
 			}();

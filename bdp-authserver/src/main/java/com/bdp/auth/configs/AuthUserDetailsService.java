@@ -9,16 +9,25 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
+import com.bdp.framework.biz.UserBiz;
+
 @Component
 public class AuthUserDetailsService implements UserDetailsService {
+
+	@Autowired
+	private UserBiz userBiz;
 
 	@Autowired
 	private PasswordEncoder passwordEncoder;
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		return new User(username, passwordEncoder.encode("123456"),
-				AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
+		com.bdp.framework.entity.User u = userBiz.readByName(username);
+		if (u != null) {
+			return new User(username, passwordEncoder.encode(u.getPassword()),
+					AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
+		}
+		return null;
 	}
 
 }
