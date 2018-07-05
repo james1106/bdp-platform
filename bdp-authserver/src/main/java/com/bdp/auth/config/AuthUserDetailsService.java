@@ -1,4 +1,4 @@
-package com.bdp.auth.configs;
+package com.bdp.auth.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -27,7 +27,8 @@ public class AuthUserDetailsService implements UserDetailsService {
 			return new User(username, passwordEncoder.encode(u.getPassword()),
 					AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
 		}
-		return null;
+		// 此处不能返回空
+		throw new UsernameNotFoundException("用户名不存在");
 	}
 
 }
