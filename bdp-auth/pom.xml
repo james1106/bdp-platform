@@ -3,14 +3,13 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>bdp-schedule</artifactId>
+	<artifactId>bdp-auth</artifactId>
     <packaging>pom</packaging>
     <version>1.0.0-SNAPSHOT</version>
 
     <modules>
-        <module>bdp-schedule-common</module>
-        <module>bdp-schedule-server</module>
-        <module>bdp-schedule-client</module>
+        <module>bdp-auth-server</module>
+        <module>bdp-auth-client</module>
     </modules>
 
 	<parent>

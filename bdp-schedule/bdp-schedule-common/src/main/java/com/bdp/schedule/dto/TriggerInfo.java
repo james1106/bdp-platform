@@ -1,0 +1,271 @@
+package com.bdp.schedule.dto;
+
+import java.io.Serializable;
+import java.util.Date;
+
+/**
+ * 封装的是触发器相关的信息
+ * 
+ * @author JACK
+ *
+ */
+public class TriggerInfo implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+
+	public static final String TRIGGER_TYPE_DAY = "day";
+	public static final String TRIGGER_TYPE_WEEK = "week";
+	public static final String TRIGGER_TYPE_MONTH = "month";
+	public static final String TRIGGER_TYPE_CYCLE = "cycle";
+	public static final String TRIGGER_TYPE_CRON = "cron";
+
+	public static final String EXPIRE_TYPE_NONE = "none";
+	public static final String EXPIRE_TYPE_DATE = "date";
+	public static final String EXPIRE_TYPE_TIMES = "times";
+
+	// 调度名称
+	private String triggerName;
+
+	// 过期方式，即按日期、按次数，不过期
+	private String expireType=EXPIRE_TYPE_NONE;
+
+	// 在指定日期后过期
+	private Date expireDate;
+
+	// 执行多少次后过期
+	private int expireTimes;
+
+	// 当前调度是否生效
+	private boolean validate = true;
+
+	// 触发类型,即按日、按周、按月、循环、cron自定义等
+	private String triggerType;
+
+	// 按日执行，每天执行的具体时间
+	private String dayRunTime;
+
+	// 按周执行，具体在每周的哪几天执行
+	private String weekRunDays;
+
+	// 按周执行，执行的具体时间
+	private String weekRunTime;
+
+	// 按月执行，具体在哪几个月执行
+	private String monthRunMonths;
+
+	// 按月执行，每个月的哪一天执行
+	private String monthRunDay;
+
+	// 按月执行，每天的执行时间点
+	private String monthRunTime;
+
+	// 循环执行，的开始时间
+	private String cycleTime;
+
+	// 循环执行的时间间隔
+	private int cycleInterval;
+
+	// 自定义执行的cron表达式
+	private String selfCron;
+
+	/**
+	 * 触发器名称
+	 * 
+	 * @return
+	 */
+	public String getTriggerName() {
+		return triggerName;
+	}
+
+	void setTriggerName(String triggerName) {
+		this.triggerName = triggerName;
+	}
+
+	/**
+	 * 调度过期类型，可选值见该类型定义的常量EXPIRE_TYPE_*常量
+	 * 
+	 * @return
+	 */
+	public String getExpireType() {
+		return expireType;
+	}
+
+	public void setExpireType(String expireType) {
+		this.expireType = expireType;
+	}
+
+	/**
+	 * 如果过期类型为EXPIRE_TYPE_DATE时，该字段指定过期日期
+	 * 
+	 * @return
+	 */
+	public Date getExpireDate() {
+		return expireDate;
+	}
+
+	public void setExpireDate(Date expireDate) {
+		this.expireDate = expireDate;
+	}
+
+	/**
+	 * 如果过期类型为EXPIRE_TYPE_TIMES时，该字段指定过期次数
+	 * 
+	 * @return
+	 */
+	public int getExpireTimes() {
+		return expireTimes;
+	}
+
+	public void setExpireTimes(int expireTimes) {
+		this.expireTimes = expireTimes;
+	}
+
+	/**
+	 * 当前调度是否立即生效
+	 * 
+	 * @return
+	 */
+	public boolean isValidate() {
+		return validate;
+	}
+
+	public void setValidate(boolean validate) {
+		this.validate = validate;
+	}
+
+	/**
+	 * 触发类型，可选值见该类型定义的常量TRIGGER_TYPE_*常量
+	 * 
+	 * @return
+	 */
+	public String getTriggerType() {
+		return triggerType;
+	}
+
+	public void setTriggerType(String triggerType) {
+		this.triggerType = triggerType;
+	}
+
+	/**
+	 * 如果触发类型为TRIGGER_TYPE_DAY时，该字段指定每天的执行时间<br/>
+	 * 格式为HH:mm:ss
+	 * 
+	 * @return
+	 */
+	public String getDayRunTime() {
+		return dayRunTime;
+	}
+
+	public void setDayRunTime(String dayRunTime) {
+		this.dayRunTime = dayRunTime;
+	}
+
+	/**
+	 * 如果触发类型为TRIGGER_TYPE_WEEK时，该字段指定执行的具体天数<br/>
+	 * 格式为1,3,5
+	 * 
+	 * @return
+	 */
+	public String getWeekRunDays() {
+		return weekRunDays;
+	}
+
+	public void setWeekRunDays(String weekRunDays) {
+		this.weekRunDays = weekRunDays;
+	}
+
+	/**
+	 * 如果触发类型为TRIGGER_TYPE_WEEK时，该字段指定执行的具体时间<br/>
+	 * 格式为HH:mm:ss
+	 * 
+	 * @return
+	 */
+	public String getWeekRunTime() {
+		return weekRunTime;
+	}
+
+	public void setWeekRunTime(String weekRunTime) {
+		this.weekRunTime = weekRunTime;
+	}
+
+	/**
+	 * 如果触发类型为TRIGGER_TYPE_MONTH时，该字段指定执行的具体月份<br/>
+	 * 格式为5,7,9
+	 * 
+	 * @return
+	 */
+	public String getMonthRunMonths() {
+		return monthRunMonths;
+	}
+
+	public void setMonthRunMonths(String monthRunMonths) {
+		this.monthRunMonths = monthRunMonths;
+	}
+
+	/**
+	 * 如果触发类型为TRIGGER_TYPE_MONTH时，该字段指定执行的具体日期<br/>
+	 * 格式为：21，表示每个月的21号执行
+	 * 
+	 * @return
+	 */
+	public String getMonthRunDay() {
+		return monthRunDay;
+	}
+
+	public void setMonthRunDay(String monthRunDay) {
+		this.monthRunDay = monthRunDay;
+	}
+
+	/**
+	 * 如果触发类型为TRIGGER_TYPE_MONTH时，该字段指定执行的具体时间<br/>
+	 * 格式为：HH:mm:ss
+	 * 
+	 * @return
+	 */
+	public String getMonthRunTime() {
+		return monthRunTime;
+	}
+
+	public void setMonthRunTime(String monthRunTime) {
+		this.monthRunTime = monthRunTime;
+	}
+
+	/**
+	 * 如果触发类型为TRIGGER_TYPE_CYCLE时，该字段指定执行的起始时间
+	 * 
+	 * @return
+	 */
+	public String getCycleTime() {
+		return cycleTime;
+	}
+
+	public void setCycleTime(String cycleTime) {
+		this.cycleTime = cycleTime;
+	}
+
+	/**
+	 * 如果触发类型为TRIGGER_TYPE_CYCLE时，该字段指定执行的时间间隔，小时为单位
+	 * 
+	 * @return
+	 */
+	public int getCycleInterval() {
+		return cycleInterval;
+	}
+
+	public void setCycleInterval(int cycleInterval) {
+		this.cycleInterval = cycleInterval;
+	}
+
+	/**
+	 * 如果触发类型为TRIGGER_TYPE_CRON时，该字段指定执行cron表达式
+	 * 
+	 * @return
+	 */
+	public String getSelfCron() {
+		return selfCron;
+	}
+
+	public void setSelfCron(String selfCron) {
+		this.selfCron = selfCron;
+	}
+}

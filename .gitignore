@@ -14,6 +14,7 @@ target
 
 # STS files
 .springBeans
+.factorypath
 
 # BlueJ files
 *.ctxt

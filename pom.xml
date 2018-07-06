@@ -80,10 +80,8 @@
 		<module>bdp-config</module>
 		<module>bdp-monitor</module>
 		<module>bdp-gateway</module>
-		<module>bdp-datasource</module>
-		<module>bdp-metadata</module>
-		<module>bdp-minibi</module>
-		<module>bdp-authserver</module>
+		<module>bdp-etl</module>
+		<module>bdp-auth</module>
 		<module>bdp-schedule</module>
 	</modules>
 
