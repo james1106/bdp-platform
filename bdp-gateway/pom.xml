@@ -31,5 +31,9 @@
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-oauth2</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.bdp</groupId>
+			<artifactId>bdp-framework</artifactId>
+		</dependency>
 	</dependencies>
 </project>
