@@ -1,5 +1,6 @@
 package com.bdp.framework.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -28,7 +29,7 @@ public class User {
 
 	private String sex;
 
-	private String birthday;
+	private Date birthday;
 
 	private String image;
 
@@ -80,11 +81,11 @@ public class User {
 		this.sex = sex;
 	}
 
-	public String getBirthday() {
+	public Date getBirthday() {
 		return birthday;
 	}
 
-	public void setBirthday(String birthday) {
+	public void setBirthday(Date birthday) {
 		this.birthday = birthday;
 	}
 

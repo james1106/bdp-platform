@@ -15,7 +15,7 @@ public class UserController extends BaseController<UserBiz, User> {
 	@RequestMapping(value = "/getUserByUserName/{username}", method = RequestMethod.GET)
 	@ResponseBody
 	public ResponseEntity<User> getUserUserName(@PathVariable("username") String username) throws Exception {
-		User user = baseBiz.getEntityByJpql("from User u where u.username", username);
+		User user = baseBiz.getEntityByJpql("select u from User u where u.username=?", username);
 		return ResponseEntity.ok(user);
 	}
 }

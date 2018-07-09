@@ -29,10 +29,10 @@ public class Role {
 	private String orderNO;
 
 	@ManyToMany(cascade = CascadeType.REFRESH)
-	@JoinTable(name = "bdp_fw_Role_System", joinColumns = { @JoinColumn(name = "role_id") }, inverseJoinColumns = {
-			@JoinColumn(name = "system_id") }, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
+	@JoinTable(name = "bdp_fw_Role_Busisys", joinColumns = { @JoinColumn(name = "role_id") }, inverseJoinColumns = {
+			@JoinColumn(name = "busisys_id") }, foreignKey = @ForeignKey(value = ConstraintMode.NO_CONSTRAINT))
 	@OrderBy("orderNO asc")
-	private List<System> systems;
+	private List<Busisys> busisyses;
 
 	@ManyToMany(cascade = CascadeType.REFRESH)
 	@JoinTable(name = "bdp_fw_Role_Menu", joinColumns = { @JoinColumn(name = "role_id") }, inverseJoinColumns = {
@@ -72,12 +72,12 @@ public class Role {
 		this.orderNO = orderNO;
 	}
 
-	public List<System> getSystems() {
-		return systems;
+	public List<Busisys> getBusisyses() {
+		return busisyses;
 	}
 
-	public void setSystems(List<System> systems) {
-		this.systems = systems;
+	public void setBusisyses(List<Busisys> busisyses) {
+		this.busisyses = busisyses;
 	}
 
 	public List<Menu> getMenus() {

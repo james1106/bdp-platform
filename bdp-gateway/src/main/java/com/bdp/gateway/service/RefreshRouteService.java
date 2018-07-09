@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
  * @author JACK
  *
  */
-@Service
+//@Service
 public class RefreshRouteService {
 
 	@Autowired

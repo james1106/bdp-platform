@@ -37,6 +37,7 @@ public class AuthServerSecurityConfig extends WebSecurityConfigurerAdapter {
 		String[] permits = new String[] { "/login", "/vcode/**", "/oauth/**", "/framework/**", "/static/**" };
 		http.formLogin().loginPage("/login").loginProcessingUrl("/loginForm")
 				.failureHandler(authenticationFailureHandler).and().apply(validateCodeSecurityConfig).and()
-				.authorizeRequests().antMatchers(permits).permitAll().anyRequest().denyAll().and().csrf().disable();
+				.authorizeRequests().antMatchers(permits).permitAll().anyRequest().authenticated().and().csrf()
+				.disable();
 	}
 }

@@ -12,22 +12,22 @@ import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
+import com.bdp.framework.biz.UserBiz;
+
 @Configuration("frameworkWebConfig")
 public class WebConfig implements WebMvcConfigurer {
 
-	Logger logger = LoggerFactory.getLogger(WebConfig.class);
+	Logger logger = LoggerFactory.getLogger(getClass());
 
 	@Override
 	public void addResourceHandlers(ResourceHandlerRegistry registry) {
-		// 通配符是**号
-		// addResourceLocations中使用classpath且以/结尾表示路径
-		registry.addResourceHandler("/framework/**").addResourceLocations(
-				"classpath:/static/framework/",
+		// 注意通配符是**号，addResourceLocations中使用classpath且以/结尾表示路径
+		registry.addResourceHandler("/framework/**").addResourceLocations("classpath:/static/framework/",
 				"classpath:/templates/framework/");
 
+		// 映射一个static目录，因为其它项目的静态资源文件放在static目录，这里统一映射
 		if (!registry.hasMappingForPattern("/static/**")) {
-			registry.addResourceHandler("/static/**")
-					.addResourceLocations("classpath:/static/");
+			registry.addResourceHandler("/static/**").addResourceLocations("classpath:/static/");
 		}
 	}
 
@@ -43,8 +43,8 @@ public class WebConfig implements WebMvcConfigurer {
 	 */
 	class ProxyHeaderInterceptor implements HandlerInterceptor {
 		@Override
-		public boolean preHandle(HttpServletRequest request,
-				HttpServletResponse response, Object handler) throws Exception {
+		public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
+				throws Exception {
 			String zuulProxy = request.getHeader("zuulProxy");
 			if (StringUtils.isNotEmpty(zuulProxy)) {
 				// 设置在request中的属性可以直接被thymeleaf通过${}引用

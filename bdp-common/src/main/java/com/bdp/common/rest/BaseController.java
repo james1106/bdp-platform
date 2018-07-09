@@ -3,8 +3,6 @@ package com.bdp.common.rest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import com.bdp.common.context.BaseContextHandler;
 import com.bdp.common.data.biz.BaseBiz;
 
 /**
@@ -46,9 +44,5 @@ public class BaseController<Biz extends BaseBiz<T>, T> {
 	public ResponseEntity<Boolean> remove(@PathVariable("id") String id) {
 		baseBiz.deleteEntity(id);
 		return ResponseEntity.ok(true);
-	}
-
-	public String getCurrentUserName() {
-		return BaseContextHandler.getUsername();
 	}
 }

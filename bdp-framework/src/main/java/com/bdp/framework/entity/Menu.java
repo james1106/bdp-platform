@@ -53,9 +53,9 @@ public class Menu {
 	private int orderNO;
 
 	@ManyToOne(cascade = { CascadeType.REFRESH }, optional = false)
-	@JoinColumn(name = "system_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
+	@JoinColumn(name = "busisys_id", foreignKey = @ForeignKey(ConstraintMode.NO_CONSTRAINT))
 	@JsonIgnore
-	private System system;
+	private Busisys busisys;;
 
 	public String getId() {
 		return id;
@@ -121,12 +121,28 @@ public class Menu {
 		this.orderNO = orderNO;
 	}
 
-	public System getSystem() {
-		return system;
+	public Menu getParent() {
+		return parent;
 	}
 
-	public void setSystem(System system) {
-		this.system = system;
+	public void setParent(Menu parent) {
+		this.parent = parent;
+	}
+
+	public List<Menu> getChildren() {
+		return children;
+	}
+
+	public void setChildren(List<Menu> children) {
+		this.children = children;
+	}
+
+	public Busisys getBusisys() {
+		return busisys;
+	}
+
+	public void setBusisys(Busisys busisys) {
+		this.busisys = busisys;
 	}
 
 }
