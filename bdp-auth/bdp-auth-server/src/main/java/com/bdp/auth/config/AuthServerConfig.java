@@ -1,11 +1,13 @@
 package com.bdp.auth.config;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.oauth2.common.DefaultOAuth2AccessToken;
 import org.springframework.security.oauth2.common.OAuth2AccessToken;
@@ -16,12 +18,12 @@ import org.springframework.security.oauth2.config.annotation.web.configurers.Aut
 import org.springframework.security.oauth2.config.annotation.web.configurers.AuthorizationServerSecurityConfigurer;
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.TokenEnhancer;
+import org.springframework.security.oauth2.provider.token.TokenEnhancerChain;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
 import com.bdp.framework.biz.UserBiz;
-import com.bdp.framework.entity.User;
 
 @Configuration
 @EnableAuthorizationServer
@@ -46,7 +48,10 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 
 	@Override
 	public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
-		endpoints.tokenStore(jwtTokenStore()).accessTokenConverter(jwtAccessTokenConverter());
+		endpoints.tokenStore(jwtTokenStore());
+		TokenEnhancerChain tokenEnhancerChain = new TokenEnhancerChain();
+		tokenEnhancerChain.setTokenEnhancers(Arrays.asList(jwtTokenEnhancer(), jwtAccessTokenConverter()));
+		endpoints.tokenEnhancer(tokenEnhancerChain);
 	}
 
 	/**
@@ -83,8 +88,9 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 	class JwtTokenEnhancer implements TokenEnhancer {
 		@Override
 		public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
-			String username = (String) authentication.getPrincipal();
-			User user = userBiz.readByName(username);
+			User principal = (User) authentication.getPrincipal();
+			String username = principal.getUsername();
+			com.bdp.framework.entity.User user = userBiz.readByName(username);
 			if (user != null) {
 				Map<String, Object> infos = new HashMap<>();
 				infos.put("UserID", user.getId());

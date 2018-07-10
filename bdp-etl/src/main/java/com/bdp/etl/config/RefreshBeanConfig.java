@@ -1,13 +1,9 @@
 package com.bdp.etl.config;
 
-import javax.annotation.PostConstruct;
-
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.env.Environment;
-import org.springframework.security.oauth2.config.annotation.web.configuration.ResourceServerConfiguration;
 
 /*
  * 这个类为了演示从配置服务器刷新配置的功能。
@@ -28,14 +24,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
  */
 @Configuration
 public class RefreshBeanConfig {
-	
-	@Autowired
-	private ResourceServerConfiguration resourceServerConfiguration;
-
-	@PostConstruct
-	public void init() {
-		System.out.println(resourceServerConfiguration);
-	}
 	
 	// 需要刷新的Bean必须加上注解@RefreshScope
 	@Bean

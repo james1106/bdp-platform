@@ -26,8 +26,10 @@ public class ValidateCodeController {
 	@GetMapping("/image")
 	public void validateImage(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ValidateCode validateCode = generate(request);
+		BufferedImage image = validateCode.getImage();
+		validateCode.setImage(null);
 		repository.save(request, validateCode);
-		ImageIO.write(validateCode.getImage(), "JPEG", response.getOutputStream());
+		ImageIO.write(image, "JPEG", response.getOutputStream());
 	}
 
 	public ValidateCode generate(HttpServletRequest request) {
