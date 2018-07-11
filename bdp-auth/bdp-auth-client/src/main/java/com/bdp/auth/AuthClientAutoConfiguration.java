@@ -1,6 +1,7 @@
 package com.bdp.auth;
 
 import org.springframework.boot.autoconfigure.AutoConfigureBefore;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.security.oauth2.OAuth2AutoConfiguration;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,6 +21,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.E
 // 另外@AutoConfigureAfter这样的注解也只是应用在Auto-configuration配置类之间的<br/>
 // 所有的Auto-configuration的执行会在户自定义的bean配置完成后开始执行,当然如果用户自定义的bean需要注入Auto-configuration中提供的bean时spring会先配置依赖bean。<br/>
 @AutoConfigureBefore(OAuth2AutoConfiguration.class)
+// 下面设置只有配置文件中存在bdp.auth.client.enabled=true时当前自动配置才生效
+// 当前类只是为了演示Auto-configuration的用法及要注意的点，根据上面说的使用原则，这里使用Auto-configuration方式不合造。
+// 建议使用@EnableBdpAuthClient注解方式
+@ConditionalOnProperty(prefix = "bdp.auth.client", name = "enabled", havingValue = "true", matchIfMissing = false)
 public class AuthClientAutoConfiguration {
 
 }

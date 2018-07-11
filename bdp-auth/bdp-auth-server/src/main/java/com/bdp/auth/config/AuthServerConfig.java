@@ -93,12 +93,13 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 			com.bdp.framework.entity.User user = userBiz.readByName(username);
 			if (user != null) {
 				Map<String, Object> infos = new HashMap<>();
-				infos.put("UserID", user.getId());
-				infos.put("Username", user.getUsername());
-				infos.put("RealName", user.getRealname());
-				infos.put("Sex", user.getSex());
-				infos.put("Birthday", user.getBirthday());
-				infos.put("Address", user.getAddress());
+				infos.put("userId", user.getId());
+				infos.put("username", user.getUsername());
+				infos.put("realname", user.getRealname());
+				infos.put("sex", user.getSex());
+				infos.put("birthday", user.getBirthday());
+				infos.put("image", user.getImage());
+				infos.put("address", user.getAddress());
 				((DefaultOAuth2AccessToken) accessToken).setAdditionalInformation(infos);
 			}
 			return accessToken;

@@ -7,7 +7,7 @@ import com.bdp.auth.constant.AuthClientConstant;
 
 public class AuthContextHandler {
 
-	public static ThreadLocal<Map<String, Object>> threadLocal = new ThreadLocal<Map<String, Object>>();
+	private static ThreadLocal<Map<String, Object>> threadLocal = new ThreadLocal<Map<String, Object>>();
 
 	public static void set(String key, Object value) {
 		Map<String, Object> map = threadLocal.get();
@@ -27,11 +27,11 @@ public class AuthContextHandler {
 		return map.get(key);
 	}
 
-	public static AuthUser getLoginUser() {
+	public static AuthUser getAuthUser() {
 		return (AuthUser) get(AuthClientConstant.AUTHUSER_IN_THREAD_KEY);
 	}
 
-	public static void setLoginUser(AuthUser user) {
+	public static void setAuthUser(AuthUser user) {
 		set(AuthClientConstant.AUTHUSER_IN_THREAD_KEY, user);
 	}
 
