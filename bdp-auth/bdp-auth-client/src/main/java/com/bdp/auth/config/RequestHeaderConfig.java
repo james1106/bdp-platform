@@ -29,9 +29,9 @@ import feign.RequestInterceptor;
  *
  */
 @Configuration
-public class RequestHeaderConfiguration {
+public class RequestHeaderConfig {
 
-	@Autowired
+	@Autowired(required = false)
 	private List<RestTemplate> restTemplates;
 
 	@Bean

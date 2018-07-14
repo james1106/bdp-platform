@@ -6,10 +6,13 @@ import org.springframework.cloud.config.server.EnableConfigServer;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
+//import com.bdp.auth.EnableBdpAuthClient;
+
 @SpringBootApplication
 @EnableConfigServer
 @EnableFeignClients
 @EnableEurekaClient
+//@EnableBdpAuthClient
 public class ConfigServerApplication {
 
 	public static void main(String[] args) {

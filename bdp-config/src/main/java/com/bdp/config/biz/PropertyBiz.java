@@ -26,7 +26,7 @@ public class PropertyBiz extends BaseBizImpl<Property> {
 			args.add(profile);
 		}
 		if (StringUtils.isNotEmpty(label)) {
-			label += " AND p.label=? ";
+			jpql += " AND p.label=? ";
 			args.add(label);
 		}
 		return getEntitiesByJpql(jpql, args.toArray());
