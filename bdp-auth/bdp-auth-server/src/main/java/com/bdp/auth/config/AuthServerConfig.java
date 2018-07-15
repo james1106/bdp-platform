@@ -23,7 +23,7 @@ import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
 
-import com.bdp.framework.biz.UserBiz;
+import com.bdp.framework.data.biz.impl.UserBiz;
 
 @Configuration
 @EnableAuthorizationServer
@@ -90,7 +90,7 @@ public class AuthServerConfig extends AuthorizationServerConfigurerAdapter {
 		public OAuth2AccessToken enhance(OAuth2AccessToken accessToken, OAuth2Authentication authentication) {
 			User principal = (User) authentication.getPrincipal();
 			String username = principal.getUsername();
-			com.bdp.framework.entity.User user = userBiz.readByName(username);
+			com.bdp.framework.data.entity.User user = userBiz.readByName(username);
 			if (user != null) {
 				Map<String, Object> infos = new HashMap<>();
 				infos.put("userId", user.getId());

@@ -7,8 +7,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.bdp.common.data.biz.impl.BaseBizImpl;
 import com.bdp.config.entity.Property;
+import com.bdp.framework.data.biz.impl.BaseBizImpl;
 
 @Service
 @Transactional(rollbackFor = Exception.class)

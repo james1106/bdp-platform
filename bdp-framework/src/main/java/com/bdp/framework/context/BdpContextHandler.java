@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import com.bdp.framework.constant.UserConstant;
-import com.bdp.framework.entity.User;
+import com.bdp.framework.data.entity.User;
 
 public class BdpContextHandler {
 

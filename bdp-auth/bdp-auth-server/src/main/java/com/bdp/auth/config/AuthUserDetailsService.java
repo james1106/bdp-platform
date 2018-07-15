@@ -9,7 +9,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import com.bdp.framework.biz.UserBiz;
+import com.bdp.framework.data.biz.impl.UserBiz;
 
 @Component
 public class AuthUserDetailsService implements UserDetailsService {
@@ -22,7 +22,7 @@ public class AuthUserDetailsService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		com.bdp.framework.entity.User u = userBiz.readByName(username);
+		com.bdp.framework.data.entity.User u = userBiz.readByName(username);
 		if (u != null) {
 			return new User(username, passwordEncoder.encode(u.getPassword()),
 					AuthorityUtils.commaSeparatedStringToAuthorityList("ROLE_USER"));
