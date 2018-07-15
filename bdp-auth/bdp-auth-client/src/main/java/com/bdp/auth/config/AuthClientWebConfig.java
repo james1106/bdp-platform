@@ -3,12 +3,10 @@ package com.bdp.auth.config;
 import java.lang.reflect.Field;
 import java.util.Date;
 
-import javax.annotation.PostConstruct;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -30,13 +28,7 @@ import io.jsonwebtoken.JwtParser;
 import io.jsonwebtoken.Jwts;
 
 @Configuration
-public class AuthWebConfig implements WebMvcConfigurer {
-	
-	
-	@PostConstruct
-	public void init() {
-		System.out.println(123);
-	}
+public class AuthClientWebConfig implements WebMvcConfigurer {
 
 	@Autowired
 	private JwtAccessTokenConverter JwtAccessTokenConverter;

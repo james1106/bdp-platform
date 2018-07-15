@@ -15,7 +15,10 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 @Configuration
 public class RequestSecurityConfig extends ResourceServerConfigurerAdapter {
 
-	@Value("${auth.client.permit-patterns}")
+	// https://github.com/spring-projects/spring-security-oauth/issues/517
+	// 注意：这里给个默认值是因自定义ResourceServerConfigurerAdapter时，
+	// 如果在configure(HttpSecurity http)方法中不进行任何设置会有如上Bug。
+	@Value("${auth.client.permit-patterns:/issues/**}")
 	private String[] permitPatterns;
 
 	@Override

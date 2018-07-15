@@ -38,5 +38,10 @@
 			<groupId>com.bdp</groupId>
 			<artifactId>bdp-framework</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.bdp</groupId>
+			<artifactId>bdp-auth-client</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
