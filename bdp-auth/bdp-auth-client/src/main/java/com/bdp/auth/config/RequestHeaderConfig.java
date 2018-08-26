@@ -38,7 +38,8 @@ public class RequestHeaderConfig {
 	public RequestInterceptor headerInterceptor() {
 		return template -> {
 			// 注意这里，如果Feign使用了hystrix，且选择了线程池隔离，则AuthContextHandler通过。
-			// ThreadLocal绑定的变量是否获取不到了？只能改用InheritableThreadLocal来绑定线程变量
+			// ThreadLocal绑定的变量是获取不到的，改用InheritableThreadLocal来绑定线程变量也可能获取不到，
+			// InheritableThreadLocal只能获取其父线程设置的变量，hystrix中从线程池中拿到的线程可能是由其它线程创建的
 			String jwtToken = (String) AuthContextHandler.get(AuthClientConstant.JWTTOKEN_IN_THREAD_KEY);
 			if (StringUtils.isNotEmpty(jwtToken)) {
 				template.header("Authorization", jwtToken);

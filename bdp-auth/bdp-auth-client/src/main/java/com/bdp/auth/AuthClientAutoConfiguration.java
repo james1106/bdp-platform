@@ -6,12 +6,13 @@ import org.springframework.boot.autoconfigure.security.oauth2.OAuth2AutoConfigur
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import com.bdp.auth.config.AuthClientAutoConfig;
+import com.bdp.auth.hystrix.HystrixConcurrencyStrategyConfig;
 
 @Configuration
 // @ComponentScan
 // @EnableResourceServer
 // 注意：上面行的配置与下面一行配置是等价的，这里使用下面这种方式是为了@EnableBdpAuthClient共用AuthClientAutoConfig，代码一致些
-@Import(AuthClientAutoConfig.class)
+@Import({ AuthClientAutoConfig.class, HystrixConcurrencyStrategyConfig.class })
 // 很重要，注意看@ConditionalOnBean的解释，因为当前bdp-auth-client被其它项目引用时也通过spring.factories自动配置,<br/>
 // 与OAuth2AutoConfiguration配置是一样方式，而OAuth2AutoConfiguration引入的OAuth2ResourceServerConfiguration依赖ResourceServerConfiguration的存在。<br/>
 // 而ResourceServerConfiguration又是通过@EnableResourceServer引入的，所以当前的自动配置应该在OAuth2AutoConfiguration的自动配置之前执行，<br/>

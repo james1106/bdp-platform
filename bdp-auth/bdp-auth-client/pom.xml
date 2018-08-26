@@ -27,6 +27,12 @@
 			<artifactId>spring-boot-configuration-processor</artifactId>
 			<optional>true</optional>
 		</dependency>
+		<!--引入spring-cloud-netflix-core，可通过配置保证在Hystrix使用THREAD的隔离策略时在Feign的请求拦截方法中获取SecurityContext中的信息 
+			参考代码HystrixSecurityAutoConfiguration实现，主要原理是替换了HystrixConcurrencyStrategy，其实现方式在很多地方可以借鉴模仿使用 -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-netflix-core</artifactId>
+		</dependency>
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
 			<artifactId>jjwt</artifactId>

@@ -7,7 +7,7 @@ import com.bdp.auth.constant.AuthClientConstant;
 
 public class AuthContextHandler {
 
-	private static ThreadLocal<Map<String, Object>> threadLocal = new ThreadLocal<Map<String, Object>>();
+	public static final ThreadLocal<Map<String, Object>> threadLocal = new ThreadLocal<Map<String, Object>>();
 
 	public static void set(String key, Object value) {
 		Map<String, Object> map = threadLocal.get();
