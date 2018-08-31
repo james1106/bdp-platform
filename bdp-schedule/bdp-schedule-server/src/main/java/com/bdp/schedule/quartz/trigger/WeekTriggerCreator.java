@@ -1,5 +1,6 @@
-package com.bdp.schedule.trigger;
+package com.bdp.schedule.quartz.trigger;
 
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.quartz.CronScheduleBuilder;
 import org.quartz.CronTrigger;
@@ -46,10 +47,17 @@ public class WeekTriggerCreator implements TriggerCreator {
 			int second = Integer.parseInt(timeArr[2]);
 
 			// 1-7表示周日到周六，这里1表示周日，7表示周六
-			String weekDayStr = triggerInfo.getWeekRunDays();
-			if (weekDayStr != null && !"".equals(weekDayStr.trim())) {
-				String cronStr = second + " " + minute + " " + hour + " ? * " + weekDayStr.replace('#', ',');
-				logger.info("计划=>【" + triggerInfo.getTriggerName() + "】的调度规则字符串为：" + cronStr);
+			int [] weekDays = triggerInfo.getWeekRunDays();
+			if (ArrayUtils.isEmpty(weekDays)) {
+				String info = triggerInfo.getTriggerName() + "周执行规则执行执行日期配置有误，不能为空";
+				logger.error(info);
+				throw new Exception(info);
+			}
+			String s_weekDays = ArrayUtils.toString(weekDays);
+			s_weekDays = s_weekDays.substring(1, s_weekDays.length() - 1);
+			if (s_weekDays != null && !"".equals(s_weekDays.trim())) {
+				String cronStr = second + " " + minute + " " + hour + " ? * " + s_weekDays;
+				logger.info("调度=>【" + triggerInfo.getTriggerName() + "】的调度规则字符串为：" + cronStr);
 				CronTrigger trigger = TriggerBuilder.newTrigger()
 						.withSchedule(CronScheduleBuilder.cronSchedule(cronStr)).build();
 				return trigger;

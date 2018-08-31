@@ -16,6 +16,10 @@
 	<dependencies>
 		<dependency>
 			<groupId>com.bdp</groupId>
+			<artifactId>bdp-framework</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.bdp</groupId>
 			<artifactId>bdp-schedule-common</artifactId>
 			<version>1.0.0-SNAPSHOT</version>
 		</dependency>

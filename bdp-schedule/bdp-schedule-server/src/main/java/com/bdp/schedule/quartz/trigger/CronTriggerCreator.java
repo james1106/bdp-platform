@@ -1,4 +1,4 @@
-package com.bdp.schedule.trigger;
+package com.bdp.schedule.quartz.trigger;
 
 import org.apache.commons.lang3.StringUtils;
 import org.quartz.CronScheduleBuilder;
@@ -27,7 +27,7 @@ public class CronTriggerCreator implements TriggerCreator {
 			logger.error(info);
 			throw new Exception(info);
 		}
-		logger.info("计划=>【" + triggerInfo.getTriggerName() + "】的调度规则字符串为：" + triggerInfo.getSelfCron());
+		logger.info("调度=>【" + triggerInfo.getTriggerName() + "】的调度规则字符串为：" + triggerInfo.getSelfCron());
 		CronTrigger trigger = TriggerBuilder.newTrigger()
 				.withSchedule(CronScheduleBuilder.cronSchedule(triggerInfo.getSelfCron())).build();
 		return trigger;

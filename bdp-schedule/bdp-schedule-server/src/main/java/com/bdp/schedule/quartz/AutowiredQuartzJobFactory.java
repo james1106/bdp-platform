@@ -1,4 +1,4 @@
-package com.bdp.schedule.impl;
+package com.bdp.schedule.quartz;
 
 import org.quartz.spi.TriggerFiredBundle;
 import org.springframework.beans.factory.config.AutowireCapableBeanFactory;

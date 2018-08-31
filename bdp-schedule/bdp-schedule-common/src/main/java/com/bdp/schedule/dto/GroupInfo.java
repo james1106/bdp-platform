@@ -3,6 +3,11 @@ package com.bdp.schedule.dto;
 import java.io.Serializable;
 import java.util.List;
 
+/**
+ * 调度分组信息
+ * @author JACK
+ *
+ */
 public class GroupInfo implements Serializable {
 
 	private static final long serialVersionUID = 1L;

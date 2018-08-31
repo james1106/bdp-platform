@@ -1,11 +1,13 @@
-package com.bdp.schedule.impl;
+package com.bdp.schedule.quartz;
 
 import java.util.List;
 
+import org.quartz.DisallowConcurrentExecution;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
+import org.quartz.PersistJobDataAfterExecution;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +16,15 @@ import com.bdp.schedule.client.JobClient;
 import com.bdp.schedule.dto.ScheduleInfo;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+/**
+ * 添加两个注解，保证同一时间只有一个实例执行，<br/>
+ * 且执行完成后会把JobDataMap中修改的数据持久化
+ * 
+ * @author JACK
+ *
+ */
+@PersistJobDataAfterExecution
+@DisallowConcurrentExecution
 public class ScheduleJob implements Job {
 
 	Logger logger = LoggerFactory.getLogger(getClass());

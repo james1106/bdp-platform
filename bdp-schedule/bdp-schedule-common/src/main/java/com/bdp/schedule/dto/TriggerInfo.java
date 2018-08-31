@@ -3,6 +3,8 @@ package com.bdp.schedule.dto;
 import java.io.Serializable;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 /**
  * 封装的是触发器相关的信息
  * 
@@ -27,9 +29,10 @@ public class TriggerInfo implements Serializable {
 	private String triggerName;
 
 	// 过期方式，即按日期、按次数，不过期
-	private String expireType=EXPIRE_TYPE_NONE;
+	private String expireType = EXPIRE_TYPE_NONE;
 
 	// 在指定日期后过期
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
 	private Date expireDate;
 
 	// 执行多少次后过期
@@ -45,13 +48,13 @@ public class TriggerInfo implements Serializable {
 	private String dayRunTime;
 
 	// 按周执行，具体在每周的哪几天执行
-	private String weekRunDays;
+	private int[] weekRunDays;
 
 	// 按周执行，执行的具体时间
 	private String weekRunTime;
 
 	// 按月执行，具体在哪几个月执行
-	private String monthRunMonths;
+	private int[] monthRunMonths;
 
 	// 按月执行，每个月的哪一天执行
 	private String monthRunDay;
@@ -68,17 +71,21 @@ public class TriggerInfo implements Serializable {
 	// 自定义执行的cron表达式
 	private String selfCron;
 
+	public String getTriggerName() {
+		return triggerName;
+	}
+
 	/**
 	 * 触发器名称
 	 * 
 	 * @return
 	 */
-	public String getTriggerName() {
-		return triggerName;
-	}
-
 	void setTriggerName(String triggerName) {
 		this.triggerName = triggerName;
+	}
+
+	public String getExpireType() {
+		return expireType;
 	}
 
 	/**
@@ -86,12 +93,12 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public String getExpireType() {
-		return expireType;
-	}
-
 	public void setExpireType(String expireType) {
 		this.expireType = expireType;
+	}
+
+	public Date getExpireDate() {
+		return expireDate;
 	}
 
 	/**
@@ -99,12 +106,12 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public Date getExpireDate() {
-		return expireDate;
-	}
-
 	public void setExpireDate(Date expireDate) {
 		this.expireDate = expireDate;
+	}
+
+	public int getExpireTimes() {
+		return expireTimes;
 	}
 
 	/**
@@ -112,12 +119,12 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public int getExpireTimes() {
-		return expireTimes;
-	}
-
 	public void setExpireTimes(int expireTimes) {
 		this.expireTimes = expireTimes;
+	}
+
+	public boolean isValidate() {
+		return validate;
 	}
 
 	/**
@@ -125,12 +132,12 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public boolean isValidate() {
-		return validate;
-	}
-
 	public void setValidate(boolean validate) {
 		this.validate = validate;
+	}
+
+	public String getTriggerType() {
+		return triggerType;
 	}
 
 	/**
@@ -138,12 +145,12 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public String getTriggerType() {
-		return triggerType;
-	}
-
 	public void setTriggerType(String triggerType) {
 		this.triggerType = triggerType;
+	}
+
+	public String getDayRunTime() {
+		return dayRunTime;
 	}
 
 	/**
@@ -152,26 +159,26 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public String getDayRunTime() {
-		return dayRunTime;
-	}
-
 	public void setDayRunTime(String dayRunTime) {
 		this.dayRunTime = dayRunTime;
 	}
 
-	/**
-	 * 如果触发类型为TRIGGER_TYPE_WEEK时，该字段指定执行的具体天数<br/>
-	 * 格式为1,3,5
-	 * 
-	 * @return
-	 */
-	public String getWeekRunDays() {
+	public int[] getWeekRunDays() {
 		return weekRunDays;
 	}
 
-	public void setWeekRunDays(String weekRunDays) {
+	/**
+	 * 如果触发类型为TRIGGER_TYPE_WEEK时，该字段指定执行的具体天数<br/>
+	 * 格式为{1,3,5}
+	 * 
+	 * @return
+	 */
+	public void setWeekRunDays(int[] weekRunDays) {
 		this.weekRunDays = weekRunDays;
+	}
+
+	public String getWeekRunTime() {
+		return weekRunTime;
 	}
 
 	/**
@@ -180,26 +187,26 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public String getWeekRunTime() {
-		return weekRunTime;
-	}
-
 	public void setWeekRunTime(String weekRunTime) {
 		this.weekRunTime = weekRunTime;
 	}
 
-	/**
-	 * 如果触发类型为TRIGGER_TYPE_MONTH时，该字段指定执行的具体月份<br/>
-	 * 格式为5,7,9
-	 * 
-	 * @return
-	 */
-	public String getMonthRunMonths() {
+	public int[] getMonthRunMonths() {
 		return monthRunMonths;
 	}
 
-	public void setMonthRunMonths(String monthRunMonths) {
+	/**
+	 * 如果触发类型为TRIGGER_TYPE_MONTH时，该字段指定执行的具体月份<br/>
+	 * 格式为{5,7,9}
+	 * 
+	 * @return
+	 */
+	public void setMonthRunMonths(int[] monthRunMonths) {
 		this.monthRunMonths = monthRunMonths;
+	}
+
+	public String getMonthRunDay() {
+		return monthRunDay;
 	}
 
 	/**
@@ -208,12 +215,12 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public String getMonthRunDay() {
-		return monthRunDay;
-	}
-
 	public void setMonthRunDay(String monthRunDay) {
 		this.monthRunDay = monthRunDay;
+	}
+
+	public String getMonthRunTime() {
+		return monthRunTime;
 	}
 
 	/**
@@ -222,12 +229,12 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public String getMonthRunTime() {
-		return monthRunTime;
-	}
-
 	public void setMonthRunTime(String monthRunTime) {
 		this.monthRunTime = monthRunTime;
+	}
+
+	public String getCycleTime() {
+		return cycleTime;
 	}
 
 	/**
@@ -235,12 +242,12 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public String getCycleTime() {
-		return cycleTime;
-	}
-
 	public void setCycleTime(String cycleTime) {
 		this.cycleTime = cycleTime;
+	}
+
+	public int getCycleInterval() {
+		return cycleInterval;
 	}
 
 	/**
@@ -248,12 +255,12 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public int getCycleInterval() {
-		return cycleInterval;
-	}
-
 	public void setCycleInterval(int cycleInterval) {
 		this.cycleInterval = cycleInterval;
+	}
+
+	public String getSelfCron() {
+		return selfCron;
 	}
 
 	/**
@@ -261,10 +268,6 @@ public class TriggerInfo implements Serializable {
 	 * 
 	 * @return
 	 */
-	public String getSelfCron() {
-		return selfCron;
-	}
-
 	public void setSelfCron(String selfCron) {
 		this.selfCron = selfCron;
 	}

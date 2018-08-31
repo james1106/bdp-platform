@@ -14,7 +14,7 @@ import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.web.client.RestTemplate;
 
-import com.bdp.schedule.impl.AutowiredQuartzJobFactory;
+import com.bdp.schedule.quartz.AutowiredQuartzJobFactory;
 
 @Configuration
 public class QuartzConfiguration {

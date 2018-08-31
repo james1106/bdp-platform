@@ -1,4 +1,4 @@
-package com.bdp.schedule.trigger;
+package com.bdp.schedule.quartz.trigger;
 
 import org.apache.commons.lang3.StringUtils;
 import org.quartz.CronScheduleBuilder;

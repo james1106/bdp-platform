@@ -1,4 +1,4 @@
-package com.bdp.schedule.trigger;
+package com.bdp.schedule.quartz.trigger;
 
 import org.apache.commons.lang3.StringUtils;
 import org.quartz.CronScheduleBuilder;
@@ -47,7 +47,7 @@ public class CycleTriggerCreator implements TriggerCreator {
 			int intervalHour = triggerInfo.getCycleInterval();
 
 			String cronStr = second + " " + minute + " " + hour + "/" + intervalHour + " * * ?";
-			logger.info("计划=>【" + triggerInfo.getTriggerName() + "】的调度规则字符串为：" + cronStr);
+			logger.info("调度=>【" + triggerInfo.getTriggerName() + "】的调度规则字符串为：" + cronStr);
 			CronTrigger trigger = TriggerBuilder.newTrigger().withSchedule(CronScheduleBuilder.cronSchedule(cronStr))
 					.build();
 			return trigger;

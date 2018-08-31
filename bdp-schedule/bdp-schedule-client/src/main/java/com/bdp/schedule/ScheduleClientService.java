@@ -5,7 +5,13 @@ import java.util.List;
 import com.bdp.schedule.dto.GroupInfo;
 import com.bdp.schedule.dto.ScheduleInfo;
 
-public interface ResourcesService {
+/**
+ * 调度客户端服务，由客户端实现
+ * 
+ * @author JACK
+ *
+ */
+public interface ScheduleClientService {
 
 	/**
 	 * 列出所有的调度分组信息
@@ -23,4 +29,13 @@ public interface ResourcesService {
 	 * @throws Exception
 	 */
 	public List<ScheduleInfo> listScheduleInfos(String groupId) throws Exception;
+
+	/**
+	 * 根据ID获取调度信息
+	 * 
+	 * @param groupId
+	 * @return
+	 * @throws Exception
+	 */
+	public ScheduleInfo getScheduleInfoById(String scheduleId) throws Exception;
 }
