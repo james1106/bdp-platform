@@ -1,4 +1,4 @@
-package com.bdp.schedule.client;
+package com.bdp.schedule.handler;
 
 import java.util.Date;
 import java.util.HashMap;
@@ -30,7 +30,7 @@ import com.bdp.schedule.dto.ScheduleInfo;
  *
  */
 @Component
-public class HttpJobClient implements JobClient {
+public class HttpJobHandler implements JobHandler {
 
 	public static final String CLIENT_TYPE = "http";
 

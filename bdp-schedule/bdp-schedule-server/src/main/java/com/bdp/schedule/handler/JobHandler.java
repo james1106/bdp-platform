@@ -1,4 +1,4 @@
-package com.bdp.schedule.client;
+package com.bdp.schedule.handler;
 
 import org.quartz.JobExecutionContext;
 import org.quartz.JobExecutionException;
@@ -12,7 +12,7 @@ import com.bdp.schedule.dto.ScheduleInfo;
  * @author JACK
  *
  */
-public interface JobClient {
+public interface JobHandler {
 	/**
 	 * 当前JOB是否支持可以处理传入的jobInfo.<br/>
 	 * 

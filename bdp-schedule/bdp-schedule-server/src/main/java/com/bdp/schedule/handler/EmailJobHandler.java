@@ -1,4 +1,4 @@
-package com.bdp.schedule.client;
+package com.bdp.schedule.handler;
 
 import org.apache.commons.lang3.StringUtils;
 import org.quartz.JobExecutionContext;
@@ -15,7 +15,7 @@ import com.bdp.schedule.dto.ScheduleInfo;
  *
  */
 @Component
-public class EmailJobClient implements JobClient {
+public class EmailJobHandler implements JobHandler {
 
 	public static final String CLIENT_TYPE = "email";
 
