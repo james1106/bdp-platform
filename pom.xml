@@ -75,7 +75,7 @@
 
 	<modules>
 		<module>bdp-register</module>
-		<module>bdp-common</module>
+		<module>bdp-modules</module>
 		<module>bdp-framework</module>
 		<module>bdp-config</module>
 		<module>bdp-monitor</module>
