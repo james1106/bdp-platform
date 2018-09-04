@@ -8,9 +8,6 @@ import com.bdp.tm.manager.service.LoadBalanceService;
 import com.bdp.tm.model.LoadBalanceInfo;
 import com.bdp.tm.redis.service.RedisServerService;
 
-/**
- * create by lorne on 2017/12/5
- */
 @Service
 public class LoadBalanceServiceImpl implements LoadBalanceService {
 

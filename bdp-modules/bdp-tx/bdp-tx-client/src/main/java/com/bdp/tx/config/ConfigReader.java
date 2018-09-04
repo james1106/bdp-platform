@@ -1,16 +1,14 @@
 package com.bdp.tx.config;
 
+import com.bdp.tx.commons.utils.config.ConfigUtils;
 import com.bdp.tx.config.service.TxManagerTxUrlService;
-import com.lorne.core.framework.utils.config.ConfigUtils;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-/**
- * create by lorne on 2017/11/13
- */
 @Component
 public class ConfigReader {
 

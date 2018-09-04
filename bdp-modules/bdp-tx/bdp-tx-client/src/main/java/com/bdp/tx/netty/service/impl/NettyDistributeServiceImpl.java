@@ -11,9 +11,6 @@ import com.bdp.tx.model.TxServer;
 import com.bdp.tx.netty.service.MQTxManagerService;
 import com.bdp.tx.netty.service.NettyDistributeService;
 
-/**
- * Created by lorne on 2017/6/30.
- */
 @Service
 public class NettyDistributeServiceImpl implements NettyDistributeService {
 

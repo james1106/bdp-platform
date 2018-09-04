@@ -9,9 +9,6 @@ import com.bdp.tm.api.service.ApiTxManagerService;
 import com.bdp.tm.model.TxServer;
 import com.bdp.tm.model.TxState;
 
-/**
- * Created by lorne on 2017/7/1.
- */
 @RestController
 @RequestMapping("/tx/manager")
 public class TxManagerController {

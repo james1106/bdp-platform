@@ -1,11 +1,6 @@
 package com.bdp.tx.compensate.model;
 
-/**
- * create by lorne on 2017/11/13
- */
 public class CompensateInfo {
-
-
     private long currentTime;
     private String modelName;
     private String uniqueKey;

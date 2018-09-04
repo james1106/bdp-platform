@@ -4,9 +4,6 @@ import java.util.List;
 
 import com.bdp.tm.netty.model.TxGroup;
 
-/**
- * create by lorne on 2017/11/11
- */
 public interface RedisServerService {
 
     String loadNotifyJson();

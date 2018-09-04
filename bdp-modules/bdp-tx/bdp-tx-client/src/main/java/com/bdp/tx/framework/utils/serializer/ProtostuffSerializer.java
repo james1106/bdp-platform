@@ -15,21 +15,17 @@
  */
 package com.bdp.tx.framework.utils.serializer;
 
+import com.bdp.tx.commons.exception.SerializerException;
 import com.dyuproject.protostuff.LinkedBuffer;
 import com.dyuproject.protostuff.ProtostuffIOUtil;
 import com.dyuproject.protostuff.Schema;
 
-
-import com.lorne.core.framework.exception.SerializerException;
 import org.objenesis.Objenesis;
 import org.objenesis.ObjenesisStd;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 
-/**
- * @author lorne 2017/11/11
- */
 public class ProtostuffSerializer implements ISerializer {
     private static final SchemaCache cachedSchema = SchemaCache.getInstance();
     private static final Objenesis objenesis = new ObjenesisStd(true);

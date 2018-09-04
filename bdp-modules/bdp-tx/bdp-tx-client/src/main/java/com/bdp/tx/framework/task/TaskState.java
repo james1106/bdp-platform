@@ -1,8 +1,5 @@
 package com.bdp.tx.framework.task;
 
-/**
- * create by lorne on 2017/12/21
- */
 public enum TaskState {
 
     rollback(0),commit(1),networkError(-1),networkTimeOut(-2),connectionError(-3);

@@ -2,9 +2,6 @@ package com.bdp.tx;
 
 import com.bdp.tx.model.TxServer;
 
-/**
- * Created by lorne on 2017/6/8.
- */
 public class Constants {
 
 

@@ -1,8 +1,5 @@
 package com.bdp.tm.compensate.model;
 
-/**
- * create by lorne on 2017/11/12
- */
 public class TxModel {
 
     private String time;

@@ -6,7 +6,6 @@ import com.bdp.tx.model.TxGroup;
 
 /**
  * 与事务管理器进行消息交换的接口
- * Created by lorne on 2017/6/7.
  */
 public interface MQTxManagerService {
 

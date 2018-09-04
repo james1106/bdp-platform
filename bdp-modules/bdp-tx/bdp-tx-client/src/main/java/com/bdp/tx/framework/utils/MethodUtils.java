@@ -7,9 +7,6 @@ import org.springframework.context.ApplicationContext;
 
 import com.bdp.tx.model.TransactionInvocation;
 
-/**
- * create by lorne on 2017/11/13
- */
 public class MethodUtils {
 
     private static final Logger logger = LoggerFactory.getLogger(MethodUtils.class);

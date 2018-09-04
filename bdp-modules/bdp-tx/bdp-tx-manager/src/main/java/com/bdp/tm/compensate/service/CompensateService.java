@@ -4,13 +4,10 @@ import com.bdp.tm.compensate.model.TransactionCompensateMsg;
 import com.bdp.tm.compensate.model.TxModel;
 import com.bdp.tm.model.ModelName;
 import com.bdp.tm.netty.model.TxGroup;
-import com.lorne.core.framework.exception.ServiceException;
+import com.bdp.tx.commons.exception.ServiceException;
 
 import java.util.List;
 
-/**
- * create by lorne on 2017/11/11
- */
 public interface CompensateService {
 
     boolean saveCompensateMsg(TransactionCompensateMsg transactionCompensateMsg);

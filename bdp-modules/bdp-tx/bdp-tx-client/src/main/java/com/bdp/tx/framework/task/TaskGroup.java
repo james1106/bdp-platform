@@ -4,9 +4,6 @@ package com.bdp.tx.framework.task;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * create by lorne on 2017/8/22
- */
 public class TaskGroup {
 
     private String key;

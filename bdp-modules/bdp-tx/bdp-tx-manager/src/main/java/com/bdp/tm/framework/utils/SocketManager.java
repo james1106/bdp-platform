@@ -9,9 +9,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.bdp.tm.Constants;
 
-/**
- * Created by lorne on 2017/6/30.
- */
 public class SocketManager {
 
     /**

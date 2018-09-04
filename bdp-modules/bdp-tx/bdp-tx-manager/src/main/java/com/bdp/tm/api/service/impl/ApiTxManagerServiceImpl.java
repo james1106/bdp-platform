@@ -14,9 +14,6 @@ import com.bdp.tm.manager.service.TxManagerService;
 import com.bdp.tm.model.TxServer;
 import com.bdp.tm.model.TxState;
 
-/**
- * Created by lorne on 2017/7/1.
- */
 @Service
 public class ApiTxManagerServiceImpl implements ApiTxManagerService {
 

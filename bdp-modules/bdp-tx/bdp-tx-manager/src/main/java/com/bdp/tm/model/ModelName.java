@@ -1,8 +1,5 @@
 package com.bdp.tm.model;
 
-/**
- * create by lorne on 2017/11/22
- */
 public class ModelName {
 
     private String name;

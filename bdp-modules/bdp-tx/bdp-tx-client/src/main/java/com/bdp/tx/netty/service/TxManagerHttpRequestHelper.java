@@ -1,16 +1,14 @@
 package com.bdp.tx.netty.service;
 
 
-import com.lorne.core.framework.utils.http.HttpUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
-/**
- * create by lorne on 2017/11/17
- */
+import com.bdp.tx.commons.utils.http.HttpUtils;
+
 @Component
 public class TxManagerHttpRequestHelper {
 

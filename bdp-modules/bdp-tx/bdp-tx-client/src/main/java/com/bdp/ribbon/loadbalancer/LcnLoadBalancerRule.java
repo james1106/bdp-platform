@@ -2,7 +2,7 @@ package com.bdp.ribbon.loadbalancer;
 
 
 import com.bdp.tx.aop.bean.TxTransactionLocal;
-import com.lorne.core.framework.utils.encode.MD5Util;
+import com.bdp.tx.commons.utils.encode.MD5Util;
 import com.netflix.loadbalancer.Server;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;

@@ -2,6 +2,7 @@ package com.bdp.tx.netty.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bdp.tx.aop.bean.TxTransactionInfo;
+import com.bdp.tx.commons.utils.encode.Base64Utils;
 import com.bdp.tx.compensate.model.CompensateInfo;
 import com.bdp.tx.compensate.service.CompensateService;
 import com.bdp.tx.config.ConfigReader;
@@ -12,7 +13,7 @@ import com.bdp.tx.model.Request;
 import com.bdp.tx.model.TxGroup;
 import com.bdp.tx.netty.service.MQTxManagerService;
 import com.bdp.tx.netty.service.TxManagerHttpRequestHelper;
-import com.lorne.core.framework.utils.encode.Base64Utils;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

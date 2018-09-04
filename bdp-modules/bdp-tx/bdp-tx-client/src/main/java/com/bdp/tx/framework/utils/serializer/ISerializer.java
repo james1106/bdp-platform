@@ -2,11 +2,8 @@
 package com.bdp.tx.framework.utils.serializer;
 
 
-import com.lorne.core.framework.exception.SerializerException;
+import com.bdp.tx.commons.exception.SerializerException;
 
-/**
- * @author lorne 2017/11/11
- */
 public interface ISerializer {
     /**
      * 序列化对象

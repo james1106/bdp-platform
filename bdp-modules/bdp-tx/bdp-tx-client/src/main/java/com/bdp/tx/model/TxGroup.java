@@ -5,9 +5,6 @@ import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.lang.StringUtils;
 
-/**
- * Created by lorne on 2017/6/7.
- */
 public class TxGroup {
 
     private String groupId;

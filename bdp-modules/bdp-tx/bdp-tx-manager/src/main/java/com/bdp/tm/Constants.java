@@ -1,10 +1,6 @@
 package com.bdp.tm;
 
-/**
- * Created by lorne on 2017/6/8.
- */
 public class Constants {
-
 
     public static int maxConnection;
 

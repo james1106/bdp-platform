@@ -8,9 +8,6 @@ import com.bdp.tm.model.ModelInfo;
 
 import java.util.List;
 
-/**
- * create by lorne on 2017/11/13
- */
 @Service
 public class ApiModelServiceImpl implements ApiModelService {
 

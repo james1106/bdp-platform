@@ -15,9 +15,6 @@ import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.Executor;
 
-/**
- * Created by lorne on 2017/6/30.
- */
 @ChannelHandler.Sharable
 public class TransactionHandler extends ChannelInboundHandlerAdapter {
 

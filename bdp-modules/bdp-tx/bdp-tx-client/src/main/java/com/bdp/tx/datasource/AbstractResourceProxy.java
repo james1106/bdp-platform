@@ -1,8 +1,9 @@
 package com.bdp.tx.datasource;
 
 import com.bdp.tx.aop.bean.TxTransactionLocal;
+import com.bdp.tx.commons.utils.task.Task;
 import com.bdp.tx.datasource.service.DataSourceService;
-import com.lorne.core.framework.utils.task.Task;
+
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,7 +16,6 @@ import java.util.concurrent.ConcurrentHashMap;
  * 
  * 这是一个简单的连接池，这个实现有点挫，不是太优雅
  */
-
 public abstract class AbstractResourceProxy<C, T extends ILCNResource<?>> implements ILCNTransactionControl {
 
 	protected Map<String, ILCNResource<?>> pools = new ConcurrentHashMap<>();

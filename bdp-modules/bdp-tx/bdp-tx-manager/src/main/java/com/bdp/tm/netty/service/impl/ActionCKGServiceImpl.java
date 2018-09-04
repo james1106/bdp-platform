@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 /**
  * 检查事务组
- * create by lorne on 2017/11/11
  */
 @Service(value = "ckg")
 public class ActionCKGServiceImpl implements IActionService{

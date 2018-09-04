@@ -1,9 +1,9 @@
 package com.bdp.tm.netty.service.impl;
 
 import com.alibaba.fastjson.JSONObject;
-import com.lorne.core.framework.utils.task.ConditionUtils;
-import com.lorne.core.framework.utils.task.IBack;
-import com.lorne.core.framework.utils.task.Task;
+import com.bdp.tx.commons.utils.task.ConditionUtils;
+import com.bdp.tx.commons.utils.task.IBack;
+import com.bdp.tx.commons.utils.task.Task;
 
 public class BaseSignalTaskService {
 

@@ -1,8 +1,7 @@
 package com.bdp.tx.netty.service;
 
-import io.netty.channel.ChannelHandlerContext; /**
- * create by lorne on 2017/11/11
- */
+import io.netty.channel.ChannelHandlerContext; 
+
 public interface NettyControlService {
     void restart();
 

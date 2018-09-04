@@ -4,7 +4,8 @@ import com.bdp.tx.Constants;
 import com.bdp.tx.aop.bean.TxTransactionInfo;
 import com.bdp.tx.aop.bean.TxTransactionLocal;
 import com.bdp.tx.aop.service.TransactionServer;
-import com.lorne.core.framework.utils.KidUtils;
+import com.bdp.tx.commons.utils.KidUtils;
+
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

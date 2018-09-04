@@ -2,7 +2,7 @@ package com.bdp.tm.netty.model;
 
 import com.alibaba.fastjson.JSONObject;
 import com.bdp.tm.model.ChannelSender;
-import com.lorne.core.framework.model.JsonModel;
+import com.bdp.tx.commons.model.JsonModel;
 
 /**
  * 对事务信息的封装

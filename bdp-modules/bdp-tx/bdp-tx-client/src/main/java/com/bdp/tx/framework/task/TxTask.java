@@ -1,11 +1,8 @@
 package com.bdp.tx.framework.task;
 
-import com.lorne.core.framework.utils.task.IBack;
-import com.lorne.core.framework.utils.task.Task;
+import com.bdp.tx.commons.utils.task.IBack;
+import com.bdp.tx.commons.utils.task.Task;
 
-/**
- * create by lorne on 2017/8/22
- */
 public class TxTask extends Task{
 
     private Task task;

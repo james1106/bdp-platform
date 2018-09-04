@@ -1,14 +1,12 @@
 package com.bdp.tx.framework.task;
 
-import com.lorne.core.framework.utils.task.ConditionUtils;
 import org.apache.commons.lang.StringUtils;
+
+import com.bdp.tx.commons.utils.task.ConditionUtils;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * create by lorne on 2017/8/22
- */
 public class TaskGroupManager {
 
     private Map<String, TaskGroup> taskMap = new ConcurrentHashMap<String, TaskGroup>();

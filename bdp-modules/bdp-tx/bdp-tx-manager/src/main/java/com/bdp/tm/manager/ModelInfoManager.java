@@ -5,9 +5,6 @@ import java.util.concurrent.CopyOnWriteArrayList;
 
 import com.bdp.tm.model.ModelInfo;
 
-/**
- * create by lorne on 2017/11/13
- */
 public class ModelInfoManager {
 
 

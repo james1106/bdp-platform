@@ -1,9 +1,10 @@
 package com.bdp.tx.framework.utils;
 
+import com.bdp.tx.commons.utils.task.ConditionUtils;
+import com.bdp.tx.commons.utils.task.IBack;
+import com.bdp.tx.commons.utils.task.Task;
 import com.bdp.tx.model.Request;
-import com.lorne.core.framework.utils.task.ConditionUtils;
-import com.lorne.core.framework.utils.task.IBack;
-import com.lorne.core.framework.utils.task.Task;
+
 import io.netty.channel.ChannelHandlerContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

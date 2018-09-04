@@ -7,15 +7,13 @@ import com.bdp.tm.manager.service.MicroService;
 import com.bdp.tm.model.ModelName;
 import com.bdp.tm.model.TxState;
 import com.bdp.tm.redis.service.RedisServerService;
-import com.lorne.core.framework.exception.ServiceException;
+import com.bdp.tx.commons.exception.ServiceException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-/**
- * create by lorne on 2017/11/12
- */
 @Service
 public class ApiAdminServiceImpl implements ApiAdminService {
 

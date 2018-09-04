@@ -1,10 +1,7 @@
 package com.bdp.tx.model;
 
-import com.lorne.core.framework.utils.KidUtils;
+import com.bdp.tx.commons.utils.KidUtils;
 
-/**
- * Created by lorne on 2017/6/30.
- */
 public class Request {
 
     /**

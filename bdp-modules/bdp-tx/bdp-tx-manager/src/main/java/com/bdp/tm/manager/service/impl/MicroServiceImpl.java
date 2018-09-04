@@ -19,9 +19,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * create by lorne on 2017/11/11
- */
 @Service
 public class MicroServiceImpl implements MicroService {
 

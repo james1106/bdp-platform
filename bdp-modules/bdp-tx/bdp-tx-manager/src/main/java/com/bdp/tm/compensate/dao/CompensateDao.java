@@ -4,9 +4,6 @@ import java.util.List;
 
 import com.bdp.tm.compensate.model.TransactionCompensateMsg;
 
-/**
- * create by lorne on 2017/11/11
- */
 public interface CompensateDao {
 
     String saveCompensateMsg(TransactionCompensateMsg transactionCompensateMsg);

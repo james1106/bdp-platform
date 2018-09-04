@@ -3,11 +3,7 @@ package com.bdp.tx.datasource;
 import com.bdp.tx.framework.task.TxTask;
 
 /**
- *
  * LCN 资源连接对象
- *
- *
- * create by lorne on 2017/8/22
  */
 public interface ILCNResource<T> {
 

@@ -13,9 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
-/**
- * create by lorne on 2017/11/11
- */
 @Service
 public class CompensateServiceImpl implements CompensateService {
 

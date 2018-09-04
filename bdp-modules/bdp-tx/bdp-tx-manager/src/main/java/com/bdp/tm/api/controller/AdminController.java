@@ -6,7 +6,8 @@ import com.bdp.tm.compensate.model.TxModel;
 import com.bdp.tm.model.ModelInfo;
 import com.bdp.tm.model.ModelName;
 import com.bdp.tm.model.TxState;
-import com.lorne.core.framework.exception.ServiceException;
+import com.bdp.tx.commons.exception.ServiceException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -15,9 +16,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-/**
- * Created by lorne on 2017/7/1.
- */
 @RestController
 @RequestMapping("/admin")
 public class AdminController {

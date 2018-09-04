@@ -2,9 +2,6 @@ package com.bdp.tm.compensate.model;
 
 import com.bdp.tm.netty.model.TxGroup;
 
-/**
- * create by lorne on 2017/11/11
- */
 public class TransactionCompensateMsg {
 
     private long currentTime;

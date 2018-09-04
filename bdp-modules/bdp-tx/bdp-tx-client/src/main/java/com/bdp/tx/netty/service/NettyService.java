@@ -1,8 +1,5 @@
 package com.bdp.tx.netty.service;
 
-/**
- * Created by lorne on 2017/6/30.
- */
 public interface NettyService {
 
     void start();

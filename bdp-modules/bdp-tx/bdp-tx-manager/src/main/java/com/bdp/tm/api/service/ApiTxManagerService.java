@@ -3,9 +3,6 @@ package com.bdp.tm.api.service;
 import com.bdp.tm.model.TxServer;
 import com.bdp.tm.model.TxState;
 
-/**
- * Created by lorne on 2017/7/1.
- */
 public interface ApiTxManagerService {
 
 

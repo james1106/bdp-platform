@@ -25,9 +25,6 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by lorne on 2017/6/30.
- */
 @Service
 public class NettyServiceImpl implements NettyService ,DisposableBean {
 

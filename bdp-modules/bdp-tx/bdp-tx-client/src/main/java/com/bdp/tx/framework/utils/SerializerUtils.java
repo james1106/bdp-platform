@@ -1,9 +1,9 @@
 package com.bdp.tx.framework.utils;
 
+import com.bdp.tx.commons.exception.SerializerException;
 import com.bdp.tx.framework.utils.serializer.ISerializer;
 import com.bdp.tx.framework.utils.serializer.ProtostuffSerializer;
 import com.bdp.tx.model.TransactionInvocation;
-import com.lorne.core.framework.exception.SerializerException;
 
 /**
  * 序列化与反序列化工具类

@@ -1,7 +1,8 @@
 package com.example.demo.service.impl;
 
+import com.bdp.tx.commons.utils.http.HttpUtils;
 import com.bdp.tx.netty.service.TxManagerHttpRequestService;
-import com.lorne.core.framework.utils.http.HttpUtils;
+
 import org.springframework.stereotype.Service;
 
 /**

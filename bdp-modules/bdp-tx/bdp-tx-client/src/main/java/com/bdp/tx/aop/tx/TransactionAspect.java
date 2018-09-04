@@ -14,7 +14,6 @@ import com.bdp.tx.aop.service.AspectBeforeService;
 /**
  * LCN 事务拦截器，会拦截被TxTransaction注解标注的方法，以开启或加入事务组
  */
-
 @Aspect
 @Component
 public class TransactionAspect implements Ordered {

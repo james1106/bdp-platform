@@ -1,9 +1,10 @@
 package com.bdp.tm.model;
 
 import com.bdp.tm.framework.utils.SocketUtils;
-import com.lorne.core.framework.utils.http.HttpUtils;
-import com.lorne.core.framework.utils.task.IBack;
-import com.lorne.core.framework.utils.task.Task;
+import com.bdp.tx.commons.utils.http.HttpUtils;
+import com.bdp.tx.commons.utils.task.IBack;
+import com.bdp.tx.commons.utils.task.Task;
+
 import io.netty.channel.Channel;
 import org.apache.commons.lang.StringUtils;
 

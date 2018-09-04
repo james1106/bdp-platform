@@ -5,7 +5,8 @@ import com.bdp.tm.compensate.dao.CompensateDao;
 import com.bdp.tm.compensate.model.TransactionCompensateMsg;
 import com.bdp.tm.config.ConfigReader;
 import com.bdp.tm.redis.service.RedisServerService;
-import com.lorne.core.framework.utils.DateUtil;
+import com.bdp.tx.commons.utils.DateUtil;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
