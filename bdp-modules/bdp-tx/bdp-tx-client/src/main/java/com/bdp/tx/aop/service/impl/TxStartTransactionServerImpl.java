@@ -108,6 +108,12 @@ public class TxStartTransactionServerImpl implements TransactionServer {
 					lastState = 0;
 				}
 			}
+
+			// 很重要，再次设置为null,防止线程池环境下线程重用时变量用混了，但是这里也有个问题，
+			// 即如果在当前代码行上面的代码执行出错，抛出异常,则当前线程变量无法设置为null,
+			// 所以这也是事务发起方自动判断复杂的原因之一，即便是目前事务开始的判断也有些问题
+			// 问题：如果能保证这行代码必定执行，是否可以以current为null及请求头中不包括tx-group来做为事务发起的判断依据呢？
+			// 在当前微服务模块中一个事务方法再开线程调用另一个事务方法时会不会影响对事务发起的判断呢？
 			TxTransactionLocal.setCurrent(null);
 			logger.debug("<---end start transaction");
 			logger.debug("start transaction over, res -> groupId:" + groupId + ", now state:"

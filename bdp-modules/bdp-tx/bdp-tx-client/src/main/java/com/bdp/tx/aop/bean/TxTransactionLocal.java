@@ -18,9 +18,9 @@ public class TxTransactionLocal {
 
 	private Logger logger = LoggerFactory.getLogger(getClass());
 
-	// 使用InheritableThreadLocal，理论上应该是支持hystrix线程池的隔离策略了.为何官方说不支持呢？
-	// 猜测原因：InheritableThreadLocal只能获取父线程中设置的线程变量，
-	// 但是hystrix从线程池只拿到的线程很可能不是当前调用线程的子线程，而是由其它线程创建的。
+	// 使用InheritableThreadLocal只能获取父线程中设置的线程变量，
+	// 但是hystrix使用THREAD隔离策略时从线程池中拿到的线程不能保证一定是当前调用线程的子线程，所以InheritableThreadLocal不能保证THREAD策略好使。
+	// 推测：这里使用InheritableThreadLocal原因应该是保证当前微服务下在一个事务方法中另开线程调用其它事务方法时可以获取到父线程保存的变量。
 	public final static ThreadLocal<TxTransactionLocal> currentLocal = new InheritableThreadLocal<TxTransactionLocal>();
 
 	private String groupId;
