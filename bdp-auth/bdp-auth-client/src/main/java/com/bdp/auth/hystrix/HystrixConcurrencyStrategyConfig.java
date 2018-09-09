@@ -12,6 +12,7 @@ import javax.annotation.PostConstruct;
 
 import org.apache.commons.collections.CollectionUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import com.netflix.hystrix.HystrixThreadPoolKey;
@@ -34,6 +35,7 @@ import com.netflix.hystrix.strategy.properties.HystrixProperty;
  */
 @Configuration
 @ComponentScan
+@ConditionalOnProperty(prefix = "hystrix.command.default.execution.isolation", name = "strategy", havingValue = "THREAD", matchIfMissing = false)
 public class HystrixConcurrencyStrategyConfig {
 
 	@Autowired
