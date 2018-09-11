@@ -11,8 +11,6 @@ import org.springframework.retry.annotation.EnableRetry;
 @EnableZuulProxy
 @EnableEurekaClient
 @EnableRetry
-// 这个注解引入的JAR中可以将token放入到zuul请求头中发送到下游服务，不需要额外处理
-@EnableOAuth2Sso
 public class GatewayApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(GatewayApplication.class, args);
