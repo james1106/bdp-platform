@@ -42,7 +42,7 @@ public class TxDoTransactionServerImpl implements TransactionServer {
 		logger.debug("--->begin running transaction,groupId:" + txGroupId);
 		long t1 = System.currentTimeMillis();
 
-		//很重要，表示当然分布式事务在当前模块已经存在
+		//很重要，表示分布式事务在当前模块已经存在
 		boolean isHasIsGroup = transactionControl.hasGroup(txGroupId);
 
 		TxTransactionLocal txTransactionLocal = new TxTransactionLocal();
