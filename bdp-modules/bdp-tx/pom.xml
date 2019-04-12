@@ -20,11 +20,4 @@
 		<module>bdp-tx-client</module>
 		<module>bdp-tx-demo</module>
 	</modules>
-
-	<dependencies>
-		<dependency>
-			<groupId>org.apache.commons</groupId>
-			<artifactId>commons-lang3</artifactId>
-		</dependency>
-	</dependencies>
 </project>

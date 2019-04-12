@@ -66,6 +66,8 @@
 				<artifactId>maven-jar-plugin</artifactId>
 				<executions>
 					<execution>
+						<!-- id标明使用当前的配置打包，覆盖原来mvn package命令中自带的打包 -->
+						<id>default-jar</id>
 						<phase>package</phase>
 						<goals>
 							<goal>jar</goal>
